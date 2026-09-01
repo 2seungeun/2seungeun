@@ -34,9 +34,15 @@
 | VL | video-language 정렬·추론 | reward, reasoning, policy conditioning |
 | A | action trajectory·token 생성 | direct policy |
 
-각 연구자에게는 대표 출발점 하나와 로보틱스에서의 주 역할 하나만 부여했다. 여러 영역에 걸친 사람을 억지로 한 칸에 넣은 셈이라 개인을 정확히 설명하는 그림은 아니다. 대신 전체적으로 어떤 경로가 많이 보이는지 확인하기에는 편했다.
+먼저 연구자의 출발점만 따로 셌다. 각 사람에게 대표 비디오 출발점 하나와 로보틱스에서의 주 역할 하나를 부여했다. G3와 A는 비디오 연구의 출발점이라기보다 로봇 단계에서 생기는 구조라 이 그림에서는 뺐다.
 
-![비디오 아키텍처에서 로보틱스 역할로의 연결](assets/architecture_to_robot_role.png)
+![연구자의 비디오 출발점](assets/architecture_to_robot_role.png)
+
+다음은 사람 대신 브리지 논문을 센 그림이다. 여기서는 GR-2와 Cosmos Policy가 `video + action`을 함께 생성하는 G3 direct policy로 나타난다. 앞 그림에서 G3가 0이었던 것은 G3 논문이 없어서가 아니라, 연구자의 원래 출발점을 세고 있었기 때문이다.
+
+![브리지 논문의 최종 아키텍처](assets/bridge_paper_architecture_to_robot_role.png)
+
+게임형 interactive world model은 조금 다르다. [GameNGen](https://gamengen.github.io/)이나 [Genie](https://arxiv.org/abs/2402.15391)는 action을 조건으로 미래 프레임이나 환경을 생성한다. action까지 출력하는 정책은 아니므로 이 글의 기준에서는 G3가 아니라 G2다. 다만 두 논문은 현재 40편의 pilot 목록에는 들어 있지 않아 위 숫자에는 포함되지 않았다.
 
 ## 목록을 만든 기준
 
