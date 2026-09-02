@@ -2,7 +2,7 @@
 
 [한국어](https://2seungeun.github.io/2seungeun/notes/01-video-to-robotics-transition/) | **English**
 
-<p class="article-byline">Seungeun Lee · September 1, 2026</p>
+<p align="center" class="article-byline">By <span class="article-author">Seungeun Lee</span><span aria-hidden="true"> · </span><time datetime="2026-09-01">September 1, 2026</time></p>
 
 This note began with a simple impression: a surprising number of people who worked on video now seem to be moving into robotics. To see whether that impression holds, I looked beyond current affiliations and traced both the video problems these researchers originally worked on and where that experience later appeared in robotics.
 
@@ -55,11 +55,11 @@ The codes used in the figures should be read as follows. For the generation and 
 
 G3 and A both lead to a `direct policy`. The distinction is not a difference in their robotic role, but in output modality and training structure: G3 jointly generates future visual states and actions, whereas A generates actions only.
 
-I first counted researchers by their starting point. Each person was assigned one representative video origin and one primary role in robotics. G3 and A were omitted from this figure because they tend to emerge at the robotics stage rather than describe a researcher's original video background.
+I first counted researchers by their starting point. Each person was assigned one representative video origin and one primary role in robotics. G3 is shown as zero because no researcher in this sample was assigned it as a representative video origin. A remains excluded because it is an action-only structure that tends to emerge at the robotics stage rather than describe a researcher's original video background.
 
 ![Researchers by video starting point](assets/architecture_to_robot_role.png)
 
-The next figure counts the 31 directly connected bridge papers instead of people. Here, GR-2 and Cosmos Policy appear as G3 direct policies because they jointly generate `video + action`. G3 was absent from the previous figure not because there were no G3 papers, but because that figure counted researchers' original starting points.
+The next figure counts the 31 directly connected bridge papers instead of people. Here, GR-2 and Cosmos Policy appear as G3 direct policies because they jointly generate `video + action`. G3 was zero in the previous figure not because there were no G3 papers, but because that figure counted researchers' original starting points.
 
 ![Final architectures of directly connected bridge papers](assets/bridge_paper_architecture_to_robot_role.png)
 
@@ -116,3 +116,5 @@ The list is a sample chosen to study a pattern, not an exhaustive survey. Select
 Citation counts themselves continue to change. Services report different numbers when arXiv and conference or journal versions are indexed separately, and papers from 2025–2026 may move substantially within a few months. The age-adjusted value does not solve these problems; it is only a second view for comparing older and newer papers.
 
 Separating generation, understanding, and video-language—and then tracing the roles they take in robotics—changed my initial impression. The larger pattern seems to be less about people moving fields and more about **representations and predictive structures learned from video being carried into robotic world models, planning, and policies**.
+
+<p align="center" class="article-copyright">© 2026 Seungeun Lee. All rights reserved.</p>

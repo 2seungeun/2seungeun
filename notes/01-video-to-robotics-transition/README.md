@@ -2,7 +2,7 @@
 
 **한국어** | [English](https://2seungeun.github.io/2seungeun/notes/01-video-to-robotics-transition/english.html)
 
-<p class="article-byline">이승은 · 2026년 9월 1일</p>
+<p align="center" class="article-byline">By <span class="article-author">이승은</span><span aria-hidden="true"> · </span><time datetime="2026-09-01">2026년 9월 1일</time></p>
 
 비디오를 하던 사람들이 요즘 로보틱스로 많이 넘어간 것 같다는 인상에서 시작했다. 실제로 그런 흐름이 있는지 보려면 사람의 현재 소속만 볼 게 아니라, 원래 어떤 비디오 문제를 풀었는지와 그 경험이 로봇에서 어디에 쓰였는지를 같이 봐야 했다.
 
@@ -55,7 +55,7 @@
 
 G3와 A가 모두 `direct policy`로 이어지는 것은 맞다. 둘을 나눈 이유는 로봇에서의 역할이 달라서가 아니라 출력 모달리티와 학습 구조가 다르기 때문이다. G3는 미래의 시각 상태와 action을 함께 만들고, A는 action만 만든다.
 
-먼저 연구자의 출발점만 따로 셌다. 각 사람에게 대표 비디오 출발점 하나와 로보틱스에서의 주 역할 하나를 부여했다. 단, G3와 A는 비디오 연구의 출발점이라기보다 로봇 단계에서 생기는 구조라 이 그림에서는 뺐다.
+먼저 연구자의 출발점만 따로 셌다. 각 사람에게 대표 비디오 출발점 하나와 로보틱스에서의 주 역할 하나를 부여했다. G3는 이 표본에서 대표 출발점으로 분류된 연구자가 없어 0으로 표시했다. A는 비디오 연구의 출발점이라기보다 로봇 단계에서 생기는 action-only 구조라 이 그림에서는 제외했다.
 
 ![연구자의 비디오 출발점](assets/architecture_to_robot_role.png)
 
@@ -118,5 +118,4 @@ $$
 
 그래도 생성, 이해, video-language를 한 덩어리로 세지 않고 로봇에서 맡는 역할까지 연결해 보니 처음의 막연한 인상은 조금 달라졌다. 사람의 이동 자체보다, **비디오에서 배운 표현과 예측 구조가 로봇의 world model, planning, policy로 옮겨가는 과정**이 더 큰 흐름에 가까웠다.
 
-
-
+<p align="center" class="article-copyright">© 2026 이승은. All rights reserved.</p>
