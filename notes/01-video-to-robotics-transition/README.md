@@ -42,25 +42,6 @@
 
 G3와 A가 모두 `direct policy`로 이어지는 것은 맞다. 둘을 나눈 이유는 로봇에서의 역할이 달라서가 아니라 출력 모달리티와 학습 구조가 다르기 때문이다. G3는 미래의 시각 상태와 action을 함께 만들고, A는 action만 만든다.
 
-### 게임형 G2는 넣되, 로보틱스 근거로 세지는 않았다
-
-[GameNGen](https://arxiv.org/abs/2408.14837)과 [Genie](https://arxiv.org/abs/2402.15391)는 아키텍처 기준에는 분명히 들어온다. 과거 화면과 action, 또는 영상에서 학습한 latent action을 조건으로 다음 화면을 만들기 때문에 둘 다 G2다. 다만 두 논문 자체에는 로봇이나 물리 시스템으로의 전이가 없다. 그래서 논문 표에는 `Adjacent`로 넣고, 31편짜리 브리지 통계에서는 뺐다. **G2인가**와 **로보틱스 브리지인가**를 별개의 판정으로 본 셈이다.
-
-이 기준으로 다시 찾아보니 GameNGen과 Genie만 넣는 것도 자의적이었다. 게임·일반 interactive world model 계보에는 [Action-Conditional Video Prediction](https://dl.acm.org/doi/10.5555/2969442.2969560), [GameGAN](https://arxiv.org/abs/2005.12126), [Playable Video Generation](https://arxiv.org/abs/2101.12195), [Promptable Game Models](https://arxiv.org/abs/2303.13472), [DIAMOND](https://arxiv.org/abs/2405.12399), [Pandora](https://arxiv.org/abs/2406.09455), [GameGen-X](https://arxiv.org/abs/2411.00769)도 같은 규칙에 들어온다. 이 아홉 편은 별도 계보로 묶었다. 전수 목록이라기보다는 action-conditioned visual rollout이 어떻게 확장됐는지 보기 위한 대표 표본이다.
-
-반대로 아래 여섯 편은 로봇 데이터, 로봇 계획, 정책 학습·평가 중 하나를 논문 안에서 직접 다루므로 브리지 표본에 추가했다.
-
-| 논문 | G2로 본 이유 | 로보틱스 연결 |
-|---|---|---|
-| [UniSim](https://arxiv.org/abs/2310.06114) | action에 따른 미래 장면을 생성 | 생성한 상호작용으로 정책을 학습하고 실제 로봇 전이를 평가 |
-| [iVideoGPT](https://arxiv.org/abs/2405.15223) | 관측·action·reward를 토큰화해 다음 상태를 예측 | 로봇 조작 데이터 사전학습, visual planning과 model-based RL 평가 |
-| [IRASim](https://arxiv.org/abs/2406.14540) | 로봇 action trajectory를 조건으로 미래 비디오 생성 | 조작 정책 평가와 planning에 사용 |
-| [Navigation World Models](https://arxiv.org/abs/2412.03572) | 이동 action을 조건으로 미래 관측 생성 | 사람·로봇의 egocentric video로 학습하고 경로 계획에 사용 |
-| [AVID](https://arxiv.org/abs/2410.12822) | video diffusion을 action-conditioned world model로 변환 | 실제 로보틱스 데이터에서 평가 |
-| [Vid2World](https://arxiv.org/abs/2505.14357) | video diffusion을 causal·action-conditioned 모델로 변환 | 로봇 조작, 게임, navigation에서 함께 평가 |
-
-![게임·일반 interactive G2 계보](assets/interactive_g2_lineage.png)
-
 먼저 연구자의 출발점만 따로 셌다. 각 사람에게 대표 비디오 출발점 하나와 로보틱스에서의 주 역할 하나를 부여했다. G3와 A는 비디오 연구의 출발점이라기보다 로봇 단계에서 생기는 구조라 이 그림에서는 뺐다.
 
 ![연구자의 비디오 출발점](assets/architecture_to_robot_role.png)
@@ -114,7 +95,7 @@ $$
 = \sqrt{(C_{video}+1)(C_{robotics}+1)} \times w_{evidence}
 $$
 
-근거가 `High`이면 1.0, `Medium`이면 0.8을 곱했다. 0.8은 통계적으로 추정한 계수가 아니라, 연결 근거가 덜 직접적인 사례를 보수적으로 낮추기 위한 규칙이다. 한쪽 논문만 인용수가 큰 사람이 지나치게 올라가지 않도록 산술평균 대신 기하평균을 썼다. `Important_both=Yes`이고 두 대표 논문의 coverage가 모두 있는 사람만 계산했다. 이 기준에서는 Chelsea Finn, Sergey Levine, Ming-Yu Liu, Oier Mees, Thomas Brox가 앞에 놓였고 Agrim Gupta는 17위였다. Agrim Gupta가 중요하지 않다는 뜻은 아니다. 처음 떠올린 사례라는 이유만으로 1번에 놓였던 순서를 걷어낸 것이다.
+근거가 `High`이면 1.0, `Medium`이면 0.8을 곱했다. 0.8은 통계적으로 추정한 계수가 아니라, 연결 근거가 덜 직접적인 사례를 보수적으로 낮추기 위한 규칙이다. 한쪽 논문만 인용수가 큰 사람이 지나치게 올라가지 않도록 산술평균 대신 기하평균을 썼다. `Important_both=Yes`이고 두 대표 논문의 coverage가 모두 있는 사람만 계산했다. 이 기준에서는 Chelsea Finn, Sergey Levine, Ming-Yu Liu, Oier Mees, Thomas Brox가 앞에 놓였다.
 
 ### 이 숫자를 그대로 순위표로 보기는 어렵다
 
@@ -125,3 +106,10 @@ $$
 인용수 자체도 계속 변한다. arXiv와 학회·저널 버전이 따로 잡히면 검색 서비스마다 숫자가 다르고, 2025–2026년 논문은 몇 달 사이 순위가 크게 달라질 수 있다. 연차 보정값도 이런 문제를 해결하는 지표라기보다 오래된 논문과 최신 논문을 한 번 더 나눠 보는 참고값이다.
 
 그래도 생성, 이해, video-language를 한 덩어리로 세지 않고 로봇에서 맡는 역할까지 연결해 보니 처음의 막연한 인상은 조금 달라졌다. 사람의 이동 자체보다, **비디오에서 배운 표현과 예측 구조가 로봇의 world model, planning, policy로 옮겨가는 과정**이 더 큰 흐름에 가까웠다.
+
+
+### 게임형 G2는 넣되, 로보틱스 근거로 세지는 않았다
+
+[GameNGen](https://arxiv.org/abs/2408.14837)과 [Genie](https://arxiv.org/abs/2402.15391)는 아키텍처 기준에는 분명히 들어온다. 과거 화면과 action, 또는 영상에서 학습한 latent action을 조건으로 다음 화면을 만들기 때문에 둘 다 G2다. 다만 두 논문 자체에는 로봇이나 물리 시스템으로의 전이가 없다. 그래서 논문 표에는 `Adjacent`로 넣고, 31편짜리 브리지 통계에서는 뺐다. **G2인가**와 **로보틱스 브리지인가**를 별개의 판정으로 본 셈이다.
+
+![게임·일반 interactive G2 계보](assets/interactive_g2_lineage.png)
