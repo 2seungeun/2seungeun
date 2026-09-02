@@ -2,7 +2,7 @@
 
 **한국어** | [English](https://2seungeun.github.io/2seungeun/notes/01-video-to-robotics-transition/english.html)
 
-<p align="center" class="article-byline">By <span class="article-author">이승은</span><span aria-hidden="true"> · </span><time datetime="2026-09-01">2026년 9월 1일</time></p>
+<p align="center" class="article-byline">By <a class="article-author" href="https://www.linkedin.com/in/lee-seungeun" target="_blank" rel="author me noopener">이승은</a><span aria-hidden="true"> · </span><time datetime="2026-09-01">2026년 9월 1일</time></p>
 
 비디오를 하던 사람들이 요즘 로보틱스로 많이 넘어간 것 같다는 인상에서 시작했다. 실제로 그런 흐름이 있는지 보려면 사람의 현재 소속만 볼 게 아니라, 원래 어떤 비디오 문제를 풀었는지와 그 경험이 로봇에서 어디에 쓰였는지를 같이 봐야 했다.
 
