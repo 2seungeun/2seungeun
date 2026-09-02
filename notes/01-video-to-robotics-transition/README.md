@@ -40,9 +40,14 @@
 | VL | video-language 정렬 및 추론 표현 | 출력 기준으로 나누지 않음 | reward, reasoning, policy conditioning |
 | A | action trajectory, token | action만 출력 | direct policy |
 
-#### 게임형 G2는 넣되, 로보틱스 근거로 세지는 않았다
+<details>
+<summary><strong>게임형 G2는 넣되, 로보틱스 근거로 세지는 않았다</strong></summary>
+
 [GameNGen](https://arxiv.org/abs/2408.14837)과 [Genie](https://arxiv.org/abs/2402.15391)는 아키텍처 기준에는 분명히 들어온다. 과거 화면과 action, 또는 영상에서 학습한 latent action을 조건으로 다음 화면을 만들기 때문에 둘 다 G2다. 다만 두 논문 자체에는 로봇이나 물리 시스템으로의 전이가 없다. 그래서 **로봇 실험은 없지만 같은 기술 흐름을 보여주는 논문**으로 넣고, 엑셀에서만 `Adjacent`라고 표시했다. 31편짜리 직접 연결 통계에서는 제외했다. **G2인가**와 **로보틱스로 실제 이어졌는가**를 별개의 판정으로 본 셈이다.
+
 ![게임·일반 interactive G2 계보](assets/interactive_g2_lineage.png)
+
+</details>
 
 G3와 A가 모두 `direct policy`로 이어지는 것은 맞다. 둘을 나눈 이유는 로봇에서의 역할이 달라서가 아니라 출력 모달리티와 학습 구조가 다르기 때문이다. G3는 미래의 시각 상태와 action을 함께 만들고, A는 action만 만든다.
 
