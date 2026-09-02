@@ -43,7 +43,7 @@ The codes used in the figures should be read as follows. For the generation and 
 | A | Action trajectories or tokens | Only actions are produced | Direct policy |
 
 <details>
-<summary><strong>Why game-oriented G2 papers were included but not counted as robotics evidence</strong></summary>
+<summary><strong>Why game-oriented G2 papers were included but not counted as robotics evidence</strong> <em>(expand for the rationale and lineage)</em></summary>
 
 [GameNGen](https://arxiv.org/abs/2408.14837) and [Genie](https://arxiv.org/abs/2402.15391) clearly meet the architectural definition. Both are G2 models because they generate the next visual state conditioned on past frames and actions, or on latent actions learned from video. Neither paper, however, demonstrates a transfer to robots or physical systems. I therefore included them as **papers without robot experiments that still help trace the same technical lineage**, marked them as `Adjacent` in the spreadsheet, and excluded them from the statistics on the 31 directly connected papers. In other words, **whether a model is G2** and **whether it has actually led to robotics** were judged separately.
 

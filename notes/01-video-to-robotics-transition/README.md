@@ -43,7 +43,7 @@
 | A | action trajectory, token | action만 출력 | direct policy |
 
 <details>
-<summary><strong>게임형 G2는 넣되, 로보틱스 근거로 세지는 않았다</strong></summary>
+<summary><strong>게임형 G2는 포함하되 로보틱스 근거에서는 제외했다</strong> <em>(판단 근거와 계보 펼쳐보기)</em></summary>
 
 [GameNGen](https://arxiv.org/abs/2408.14837)과 [Genie](https://arxiv.org/abs/2402.15391)는 아키텍처 기준에는 분명히 들어온다. 과거 화면과 action, 또는 영상에서 학습한 latent action을 조건으로 다음 화면을 만들기 때문에 둘 다 G2다. 다만 두 논문 자체에는 로봇이나 물리 시스템으로의 전이가 없다. 그래서 **로봇 실험은 없지만 같은 기술 흐름을 보여주는 논문**으로 넣고, 엑셀에서만 `Adjacent`라고 표시했다. 31편짜리 직접 연결 통계에서는 제외했다. **G2인가**와 **로보틱스로 실제 이어졌는가**를 별개의 판정으로 본 셈이다.
 

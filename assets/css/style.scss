@@ -24,3 +24,31 @@
     max-width: 1000px;
   }
 }
+
+/* Make expandable notes recognizable without overwhelming the article. */
+details {
+  margin: 24px 0;
+  padding: 14px 16px;
+  border: 1px solid #d8dee4;
+  border-radius: 8px;
+  background: #f6f8fa;
+}
+
+details summary {
+  cursor: pointer;
+  color: #24292f;
+  line-height: 1.5;
+}
+
+details summary::marker {
+  color: #267cb9;
+}
+
+details summary em {
+  color: #57606a;
+  font-weight: 400;
+}
+
+details[open] summary {
+  margin-bottom: 16px;
+}
