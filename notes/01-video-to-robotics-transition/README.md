@@ -2,33 +2,34 @@
 
 **한국어** | [English](https://2seungeun.github.io/2seungeun/notes/01-video-to-robotics-transition/english.html)
 
-<p align="center" class="article-byline">By <a class="article-author" href="https://www.linkedin.com/in/lee-seungeun" target="_blank" rel="author me noopener">이승은</a><span aria-hidden="true"> · </span><time datetime="2026-09-01">2026년 9월 1일</time></p>
+<p align="center" class="article-byline">By <a class="article-author" href="https://www.linkedin.com/in/lee-seungeun" target="_blank" rel="author me noopener">이승은</a><span aria-hidden="true"> — </span><time datetime="2026-09-01">2026년 9월 1일</time></p>
 
 비디오를 하던 사람들이 로보틱스로 많이 넘어간 것 같다는 인상에서 시작했다. 그런데 사람의 현재 소속만 따라가서는 이 흐름이 잘 보이지 않았다. 원래 어떤 비디오 문제를 풀었는지, 그 경험이 로봇에서 어디에 쓰였는지를 함께 봐야 했다.
 
-이 글이 다루는 표본은 연구자 56명과 논문 66편이다. 둘은 1:1 목록이 아니다. 한 논문에 여러 연구자가 있고, 한 연구자도 여러 논문에 걸친다. 연구자 단위 비교를 할 때만 대표 비디오 논문과 대표 로보틱스 논문을 한 편씩 골랐다.
+이 글이 다루는 표본은 연구자 52명과 논문 66편이다. 둘은 1:1 목록이 아니다. 한 논문에 여러 연구자가 있고, 한 연구자도 여러 논문에 걸친다. 연구자 단위 비교를 할 때만 대표 비디오 논문과 대표 로보틱스 논문을 한 편씩 골랐다.
 
 논문은 쓰임에 따라 세 묶음으로 나눴다.
 
 | 논문 묶음 | 편수 | 뜻 | 엑셀 표기 |
 |---|---:|---|---|
-| 직접 연결 논문 | 31 | 논문 안에서 비디오의 표현·예측·생성 구조가 로봇 문제에 쓰인 것이 확인됨 | Yes |
+| 직접 연결 논문 | 31 | 논문 안에서 비디오의 표현, 예측, 생성 구조가 로봇 문제에 쓰인 것이 확인됨 | Yes |
 | 흐름을 설명하는 주변 사례 | 22 | 로봇 실험은 없거나 직접 연결은 아니지만, 기술 계보와 비교에 필요함 | Adjacent |
 | 한쪽 분야의 기준 논문 | 13 | 비디오 또는 로보틱스 한쪽의 대표 작업으로, 연구자의 출발점과 도착점을 확인하는 데 사용함 | No |
 
 ## 전환이라기보다는 경계가 섞이고 있었다
 
-56명은 겹치지 않게 네 유형 중 하나에만 넣었다.
+52명은 겹치지 않게 세 유형 중 하나에만 넣었다. 확인 가능한 비디오 출발점이 없는 로보틱스 중심 비교군은 이 분모에서 제외했다.
 
 | 유형 | 인원 | 이 글에서의 의미 |
 |---|---:|---|
-| Switcher | 2 | 주 연구 주제나 조직이 비디오에서 로보틱스·월드 모델로 뚜렷하게 이동 |
+| Switcher | 2 | 주 연구 주제나 조직이 비디오에서 로보틱스와 월드 모델로 뚜렷하게 이동 |
 | Bridger | 39 | 두 분야에서 중요한 작업을 했거나 기술을 직접 연결 |
 | Native hybrid | 11 | 비교적 이른 시기부터 비디오와 로보틱스를 함께 연구 |
-| Robotics-first | 4 | 로보틱스가 중심이며 확인 가능한 비디오 출발 논문이 없는 비교군 |
-| **합계** | **56** | 각 연구자는 한 번만 셈 |
+| **합계** | **52** | 각 연구자는 한 번만 셈 |
 
-좁은 뜻의 ‘전환’에 해당하는 사람은 2명이었다. 더 흔한 경우는 비디오와 로보틱스를 오가거나, 비디오에서 쓰던 구조를 로봇 문제로 가져온 Bridger였다. 그래서 대규모 인력 이동보다는 두 연구 영역의 경계가 빠르게 섞이고 있다고 보는 편이 맞다.
+좁은 의미의 전환은 2명뿐이었다. 그보다는 두 분야를 계속 오가거나, 비디오에서 쓰던 구조를 로봇 문제에 옮긴 `Bridger`가 39명으로 훨씬 많았다. 나머지 11명은 처음부터 두 분야를 함께 한 `Native hybrid`다.
+
+그래서 ‘비디오 연구자들의 대규모 이동’보다는 ‘두 연구 영역의 경계가 빠르게 섞이고 있다’고 보는 편이 맞아 보였다. 나 역시 비디오에서 월드 모델을 거쳐 로보틱스로 관심이 옮겨진 경우라 이 흐름이 더 궁금했던 것 같다.
 
 ![연구자 전환 유형](assets/researcher_transition_types.png)
 
@@ -44,14 +45,13 @@
 
 | 코드 | 짧은 뜻 | 구분 기준 | 로봇에서 자주 맡는 역할 |
 |---|---|---|---|
-| G1 | 영상 생성 | 이미지·비디오 픽셀이나 토큰을 생성하며, 로봇 action은 핵심 입력이 아님 | 합성 데이터, visual subgoal, video plan |
-| G2 | action 조건 미래 예측 | action을 입력으로 받을 수 있지만 출력하지 않고, 미래 영상·상태를 예측 | world simulation, planning |
-| G3 | 영상·action 공동 생성 | 미래 시각 상태와 action을 함께 생성 | direct policy |
-| U1 | 의미·행동 이해 | 장면의 사건, 행동, 의미를 표현 | perception backbone |
-| U2 | 모션·트래킹 이해 | 움직임, 포인트 트랙, 상호작용, affordance를 표현 | perception, reward, policy condition |
+| G1 | 영상 생성 | 이미지와 비디오 픽셀이나 토큰을 생성하며, 로봇 action은 핵심 입력이 아님 | 합성 데이터, visual subgoal, video plan |
+| G2 | action 조건 미래 예측 | action을 입력으로 받을 수 있지만 출력하지 않고, 미래 영상과 상태를 예측 | world simulation, planning |
+| G3 | 영상과 action 공동 생성 | 미래 시각 상태와 action을 함께 생성 | direct policy |
+| U1 | 의미와 행동 이해 | 장면의 사건, 행동, 의미를 표현 | perception backbone |
+| U2 | 모션과 트래킹 이해 | 움직임, 포인트 트랙, 상호작용, affordance를 표현 | perception, reward, policy condition |
 | U3 | latent 미래 예측 | 픽셀 대신 미래의 잠재 표현을 예측 | latent planning |
 | VL | video-language | 영상의 시간 정보와 언어를 정렬하거나 함께 추론 | reward, reasoning, policy conditioning |
-| None | 확인된 비디오 출발점 없음 | 로보틱스 비교군이거나 비디오 계보를 확인하지 못함 | 비교용 |
 
 생성 계열은 action의 위치로 G1, G2, G3를 가른다. G1은 action이 핵심 조건이 아닌 영상 생성, G2는 action을 조건으로 받되 미래 영상을 만드는 예측, G3는 영상과 action을 함께 만드는 생성이다. 로봇 단계의 최종 출력은 새로운 코드로 만들지 않고 로봇 역할에 포함했다.
 
@@ -63,7 +63,7 @@
 
 ## G1 연구자는 planning에 가장 많이 닿았고, 직접 연결 논문은 G2가 더 많았다
 
-두 그림은 같은 코드와 같은 로봇 역할을 쓴다. 첫 그림은 연구자 56명을 세고, 두 번째 그림은 직접 연결 논문 31편을 센다. G3는 연구자의 대표 출발점에서는 0이지만, 논문 표에서는 GR-2와 Cosmos Policy 두 편이 G3 → Direct policy에 놓인다.
+두 그림은 같은 코드와 같은 로봇 역할을 쓴다. 첫 그림은 연구자 52명을 세고, 두 번째 그림은 직접 연결 논문 31편을 센다. G3는 연구자의 대표 출발점에서는 0이지만, 논문 표에서는 GR-2와 Cosmos Policy 두 편이 G3 → Direct policy에 놓인다.
 
 ![연구자의 비디오 출발점](assets/architecture_to_robot_role.png)
 
@@ -73,13 +73,13 @@ G1 → Planning에 해당하는 연구자는 6명이다. Yilun Du, Jiajun Wu, Ka
 
 ![직접 연결 논문의 비디오 메커니즘과 로봇 역할](assets/bridge_paper_mechanism_to_robot_role.png)
 
-연구자 기준으로 G1은 planning 6명, direct policy 4명, world simulation 3명으로 이어졌다. G2는 world simulation 6명, planning·direct policy·data generation이 각각 2명이다. G1 출신 연구자는 planning 쪽에 가장 많이 모였지만, 직접 연결 논문 수에서는 G1 4편보다 G2 14편이 훨씬 많았다. 이 표본에서 논문으로 가장 선명하게 드러난 경로는 **action-conditioned 미래 예측에서 world simulation과 planning으로 이어지는 흐름**이었다.
+연구자 기준으로 G1은 planning 6명, direct policy 4명, world simulation 3명으로 이어졌다. G2는 world simulation 6명이고 planning, direct policy, data generation이 각각 2명이다. G1 출신 연구자는 planning 쪽에 가장 많이 모였지만, 직접 연결 논문 수에서는 G1 4편보다 G2 14편이 훨씬 많았다. 이 표본에서 논문으로 가장 선명하게 드러난 경로는 **action-conditioned 미래 예측에서 world simulation과 planning으로 이어지는 흐름**이었다.
 
 그래도 생성, 이해, video-language를 한 덩어리로 세지 않고 로봇에서 맡는 역할까지 연결해 보니 처음의 인상은 조금 달라졌다. 핵심은 사람의 이동 자체보다 **비디오에서 배운 표현과 예측 구조가 로봇의 world model, planning, policy로 옮겨가는 과정**에 가까웠다.
 
 ## 참고
 
-엑셀에는 56명의 연구자 표, 66편의 논문 표, 하나의 코드 체계로 집계한 연구자·논문 행렬, 전환 유형, 분류 기준과 출처가 들어 있다.
+엑셀에는 52명의 연구자 표, 66편의 논문 표, 하나의 코드 체계로 집계한 연구자와 논문 행렬, 전환 유형, 분류 기준과 출처가 들어 있다.
 
 - [조사 데이터 내려받기](video_to_robotics_architecture_pilot.xlsx)
 - 인용수 기준일: 2026-09-02
@@ -109,16 +109,16 @@ $$
 
 Evidence_strength가 High이면 1.0, Medium이면 0.8을 곱했다. High는 양쪽 논문의 직접 저자이거나 공식 프로젝트 역할을 확인한 경우다. Medium은 한쪽 연결이 팀 발표, 최근 프로젝트 페이지, 간접적인 기술 계보에 기대거나 직접 저자 여부를 충분히 확인하지 못한 경우다. 0.8은 추정된 통계 계수가 아니라 불확실한 연결을 보수적으로 낮추기 위한 규칙이다.
 
-한 편의 논문이 비디오와 로보틱스를 직접 잇는 경우에는 중요한 브리지 사례로 남겼다. 다만 이 순위는 서로 다른 두 논문에서 확인되는 영향력을 비교하므로, 단일 논문 사례는 점수를 계산하지 않고 별도로 구분했다. 연구자 56명의 점수 자료 상태는 다음처럼 나뉜다.
+한 편의 논문이 비디오와 로보틱스를 직접 잇는 경우에는 중요한 브리지 사례로 남겼다. 다만 이 순위는 서로 다른 두 논문에서 확인되는 영향력을 비교하므로, 단일 논문 사례는 점수를 계산하지 않고 별도로 구분했다. 연구자 52명의 점수 자료 상태는 다음처럼 나뉜다.
 
 | 점수 자료 상태 | 인원 | 순위 계산 |
 |---|---:|---|
 | 서로 다른 대표 논문 두 편이 모두 있음 | 24 | 이 중 Important_both=Yes인 20명만 계산 |
-| 한 편의 브리지 논문을 양쪽 근거로 사용 | 22 | 제외 |
-| 대표 논문 또는 인용 자료가 일부 빠짐 | 10 | 제외 |
-| **합계** | **56** |  |
+| 한 편의 브리지 논문을 양쪽 근거로 사용 | 21 | 제외 |
+| 대표 논문 또는 인용 자료가 일부 빠짐 | 7 | 제외 |
+| **합계** | **52** |  |
 
-이 기준의 상위권은 Chelsea Finn·Sergey Levine 공동 1위, Thomas Brox 3위, Frederik Ebert·Sudeep Dasari 공동 4위다. Agrim Gupta는 공동 7위다.
+이 기준의 상위권은 Chelsea Finn과 Sergey Levine 공동 1위, Thomas Brox 3위, Frederik Ebert와 Sudeep Dasari 공동 4위다. Agrim Gupta는 공동 7위다.
 
 ### 이 숫자를 그대로 순위표로 보기는 어렵다
 

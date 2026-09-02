@@ -2,11 +2,11 @@
 
 [한국어](https://2seungeun.github.io/2seungeun/notes/01-video-to-robotics-transition/) | **English**
 
-<p align="center" class="article-byline">By <a class="article-author" href="https://www.linkedin.com/in/lee-seungeun" target="_blank" rel="author me noopener">Seungeun Lee</a><span aria-hidden="true"> · </span><time datetime="2026-09-01">September 1, 2026</time></p>
+<p align="center" class="article-byline">By <a class="article-author" href="https://www.linkedin.com/in/lee-seungeun" target="_blank" rel="author me noopener">Seungeun Lee</a><span aria-hidden="true"> — </span><time datetime="2026-09-01">September 1, 2026</time></p>
 
 This note began with the impression that many people who worked on video were moving into robotics. Current affiliations alone did not tell that story very well. I needed to look at the video problems each researcher had worked on and where that experience later appeared in robotics.
 
-This note covers 56 researchers and 66 papers. These are not one-to-one lists: a paper can have several relevant authors, and a researcher can appear on several papers. I selected one representative video paper and one representative robotics paper only when making researcher-level comparisons.
+This note covers 52 researchers and 66 papers. These are not one-to-one lists: a paper can have several relevant authors, and a researcher can appear on several papers. I selected one representative video paper and one representative robotics paper only when making researcher-level comparisons.
 
 The papers are grouped by how they are used in the analysis.
 
@@ -18,17 +18,18 @@ The papers are grouped by how they are used in the analysis.
 
 ## The boundary was blurring more than people were switching fields
 
-Each of the 56 researchers is assigned to exactly one of four transition types.
+Each of the 52 researchers is assigned to exactly one of three transition types. Robotics-centered comparison cases without a verified video starting point are excluded from this denominator.
 
 | Type | Count | Meaning in this note |
 |---|---:|---|
 | Switcher | 2 | The primary topic or organization clearly moved from video toward robotics or world models |
 | Bridger | 39 | Produced important work on both sides or directly connected the technologies |
 | Native hybrid | 11 | Worked on video and robotics together from a relatively early stage |
-| Robotics-first | 4 | Robotics-centered comparison cases with no verified video-origin paper |
-| **Total** | **56** | Each researcher is counted once |
+| **Total** | **52** | Each researcher is counted once |
 
-Only two people fit a narrow definition of switching fields. The more common pattern was a Bridger moving between both areas or carrying a structure developed for video into a robotics problem. This looks less like a mass migration and more like two research areas becoming tightly entangled.
+Only two people fit a narrow definition of switching fields. Far more common were the 39 `Bridgers` who continued to move between both areas or carried structures developed for video into robotics problems. The remaining 11 are `Native hybrids` who worked on both areas from the beginning.
+
+This looks less like a mass migration of video researchers and more like two research areas becoming tightly entangled. My own interest also moved from video, through world models, toward robotics, which may be why I wanted to understand this flow more closely.
 
 ![Researcher transition types](assets/researcher_transition_types.png)
 
@@ -51,7 +52,6 @@ The vertical code axis answers one question only: **which video-side architectur
 | U2 | Motion and tracking understanding | Represents motion, point tracks, interactions, or affordance | Perception, reward, policy conditioning |
 | U3 | Latent future prediction | Predicts future representations rather than reconstructing pixels | Latent planning |
 | VL | Video-language | Aligns temporal video information with language or reasons over both | Reward, reasoning, policy conditioning |
-| None | No verified video origin | Robotics comparison case or no video lineage could be verified | Comparison only |
 
 Within the generative family, action position separates G1, G2, and G3. G1 generates video without action as a central condition. G2 takes action as a condition but predicts future video. G3 jointly generates visual states and actions. Final robot outputs are represented by robot roles rather than by another code system.
 
@@ -63,7 +63,7 @@ Within the generative family, action position separates G1, G2, and G3. G1 gener
 
 ## G1 researchers reached planning most often, while direct papers were dominated by G2
 
-Both figures use the same architecture codes and the same robot roles. The first counts 56 researchers; the second counts the 31 direct bridge papers. G3 is zero among representative researcher starting points, while GR-2 and Cosmos Policy appear as two G3 → Direct policy papers in the paper-level chart.
+Both figures use the same architecture codes and the same robot roles. The first counts 52 researchers; the second counts the 31 direct bridge papers. G3 is zero among representative researcher starting points, while GR-2 and Cosmos Policy appear as two G3 → Direct policy papers in the paper-level chart.
 
 ![Researchers by video starting point](assets/architecture_to_robot_role.png)
 
@@ -79,7 +79,7 @@ Separating generation, understanding, and video-language—and then tracing thei
 
 ## Reference
 
-The spreadsheet contains the 56-researcher table, the 66-paper table, researcher and paper matrices built from one code system, transition counts, classification rules, and source links.
+The spreadsheet contains the 52-researcher table, the 66-paper table, researcher and paper matrices built from one code system, transition counts, classification rules, and source links.
 
 - [Download the research data](video_to_robotics_architecture_pilot.xlsx)
 - Citation snapshot: September 2, 2026
@@ -109,14 +109,14 @@ $$
 
 Evidence_strength receives a weight of 1.0 for High and 0.8 for Medium. High means direct authorship on both sides or a verified official project role. Medium means one side relies on a team announcement, a recent project page, an indirect technical lineage, or authorship that could not be verified with enough confidence. The 0.8 weight is a conservative rule, not a statistically estimated coefficient.
 
-When a single paper directly bridges video and robotics, it remains an important bridge case. The ranking, however, compares influence verified through two distinct papers, so single-paper cases are reported separately rather than scored. The 56 researchers divide as follows:
+When a single paper directly bridges video and robotics, it remains an important bridge case. The ranking, however, compares influence verified through two distinct papers, so single-paper cases are reported separately rather than scored. The 52 researchers divide as follows:
 
 | Score-data status | Count | Ranking treatment |
 |---|---:|---|
 | Two distinct representative papers covered | 24 | Ranked only when Important_both=Yes; 20 people qualify |
-| One bridge paper used on both sides | 22 | Excluded |
-| Representative paper or citation input partially missing | 10 | Excluded |
-| **Total** | **56** |  |
+| One bridge paper used on both sides | 21 | Excluded |
+| Representative paper or citation input partially missing | 7 | Excluded |
+| **Total** | **52** |  |
 
 Under this rule, Chelsea Finn and Sergey Levine are tied for first, Thomas Brox is third, and Frederik Ebert and Sudeep Dasari are tied for fourth. Agrim Gupta is tied for seventh.
 
