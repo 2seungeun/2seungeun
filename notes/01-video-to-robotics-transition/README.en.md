@@ -68,8 +68,7 @@ The next figure counts the 31 directly connected bridge papers instead of people
 The spreadsheet contains the full researcher and paper lists, along with the evidence and decisions that did not fit in this note.
 
 - [Download the research data](video_to_robotics_architecture_pilot.xlsx)
-- List last updated: September 2, 2026
-- Citation snapshot: August 30, 2026 for the original 40 papers; September 2, 2026 for the 15 papers added later
+- Citation snapshot: September 2, 2026
 
 ### How the list was built
 
