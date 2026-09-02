@@ -1,0 +1,26 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* Give long-form research notes substantially more room on desktop. */
+@media screen and (min-width: 961px) {
+  body {
+    padding: 48px 32px;
+  }
+
+  .wrapper {
+    width: calc(100% - 64px);
+    max-width: 1280px;
+  }
+
+  header,
+  footer {
+    width: 220px;
+  }
+
+  section {
+    width: calc(100% - 280px);
+    max-width: 1000px;
+  }
+}
