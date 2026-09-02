@@ -2,7 +2,7 @@
 
 비디오를 하던 사람들이 요즘 로보틱스로 많이 넘어간 것 같다는 인상에서 시작했다. 실제로 그런 흐름이 있는지 보려면 사람의 현재 소속만 볼 게 아니라, 원래 어떤 비디오 문제를 풀었는지와 그 경험이 로봇에서 어디에 쓰였는지를 같이 봐야 했다.
 
-그래서 사람 단위로 57명, 논문 단위로 40편을 따로 모았다. 둘은 1:1로 대응하지 않는다. 한 논문에 여러 연구자가 참여하고 한 연구자도 여러 논문에 걸친다. 연구자 순서를 계산할 때만 각 사람에게 대표 비디오 논문과 로보틱스 논문을 한 편씩 골랐다.
+그래서 사람 단위로 57명, 논문 단위로 55편을 따로 모았다. 논문은 로봇 연결이 직접 확인되는 31편, 비교와 계보를 위한 인접 사례 17편, 비브리지 참고 사례 7편으로 나눴다. 사람과 논문은 1:1로 대응하지 않는다. 한 논문에 여러 연구자가 참여하고 한 연구자도 여러 논문에 걸친다. 연구자 순서를 계산할 때만 각 사람에게 대표 비디오 논문과 로보틱스 논문을 한 편씩 골랐다.
 
 ## 전환이라기보다는 경계가 섞이고 있었다
 
@@ -42,13 +42,30 @@
 
 G3와 A가 모두 `direct policy`로 이어지는 것은 맞다. 둘을 나눈 이유는 로봇에서의 역할이 달라서가 아니라 출력 모달리티와 학습 구조가 다르기 때문이다. G3는 미래의 시각 상태와 action을 함께 만들고, A는 action만 만든다.
 
-> [GameNGen](https://gamengen.github.io/)이나 [Genie](https://arxiv.org/abs/2402.15391)처럼 action을 조건으로 미래 화면이나 환경을 생성하는 게임형 world model은 이 기준에서 G2다. action 자체를 출력하지 않기 때문이다. 두 논문은 현재 40편 표본에는 포함하지 않았다.
+### 게임형 G2는 넣되, 로보틱스 근거로 세지는 않았다
+
+[GameNGen](https://arxiv.org/abs/2408.14837)과 [Genie](https://arxiv.org/abs/2402.15391)는 아키텍처 기준에는 분명히 들어온다. 과거 화면과 action, 또는 영상에서 학습한 latent action을 조건으로 다음 화면을 만들기 때문에 둘 다 G2다. 다만 두 논문 자체에는 로봇이나 물리 시스템으로의 전이가 없다. 그래서 논문 표에는 `Adjacent`로 넣고, 31편짜리 브리지 통계에서는 뺐다. **G2인가**와 **로보틱스 브리지인가**를 별개의 판정으로 본 셈이다.
+
+이 기준으로 다시 찾아보니 GameNGen과 Genie만 넣는 것도 자의적이었다. 게임·일반 interactive world model 계보에는 [Action-Conditional Video Prediction](https://dl.acm.org/doi/10.5555/2969442.2969560), [GameGAN](https://arxiv.org/abs/2005.12126), [Playable Video Generation](https://arxiv.org/abs/2101.12195), [Promptable Game Models](https://arxiv.org/abs/2303.13472), [DIAMOND](https://arxiv.org/abs/2405.12399), [Pandora](https://arxiv.org/abs/2406.09455), [GameGen-X](https://arxiv.org/abs/2411.00769)도 같은 규칙에 들어온다. 이 아홉 편은 별도 계보로 묶었다. 전수 목록이라기보다는 action-conditioned visual rollout이 어떻게 확장됐는지 보기 위한 대표 표본이다.
+
+반대로 아래 여섯 편은 로봇 데이터, 로봇 계획, 정책 학습·평가 중 하나를 논문 안에서 직접 다루므로 브리지 표본에 추가했다.
+
+| 논문 | G2로 본 이유 | 로보틱스 연결 |
+|---|---|---|
+| [UniSim](https://arxiv.org/abs/2310.06114) | action에 따른 미래 장면을 생성 | 생성한 상호작용으로 정책을 학습하고 실제 로봇 전이를 평가 |
+| [iVideoGPT](https://arxiv.org/abs/2405.15223) | 관측·action·reward를 토큰화해 다음 상태를 예측 | 로봇 조작 데이터 사전학습, visual planning과 model-based RL 평가 |
+| [IRASim](https://arxiv.org/abs/2406.14540) | 로봇 action trajectory를 조건으로 미래 비디오 생성 | 조작 정책 평가와 planning에 사용 |
+| [Navigation World Models](https://arxiv.org/abs/2412.03572) | 이동 action을 조건으로 미래 관측 생성 | 사람·로봇의 egocentric video로 학습하고 경로 계획에 사용 |
+| [AVID](https://arxiv.org/abs/2410.12822) | video diffusion을 action-conditioned world model로 변환 | 실제 로보틱스 데이터에서 평가 |
+| [Vid2World](https://arxiv.org/abs/2505.14357) | video diffusion을 causal·action-conditioned 모델로 변환 | 로봇 조작, 게임, navigation에서 함께 평가 |
+
+![게임·일반 interactive G2 계보](assets/interactive_g2_lineage.png)
 
 먼저 연구자의 출발점만 따로 셌다. 각 사람에게 대표 비디오 출발점 하나와 로보틱스에서의 주 역할 하나를 부여했다. G3와 A는 비디오 연구의 출발점이라기보다 로봇 단계에서 생기는 구조라 이 그림에서는 뺐다.
 
 ![연구자의 비디오 출발점](assets/architecture_to_robot_role.png)
 
-다음은 사람 대신 브리지 논문을 센 그림이다. 여기서는 GR-2와 Cosmos Policy가 `video + action`을 함께 생성하는 G3 direct policy로 나타난다. 앞 그림에서 G3가 0이었던 것은 G3 논문이 없어서가 아니라, 연구자의 원래 출발점을 세고 있었기 때문이다.
+다음은 사람 대신 직접 연결이 확인된 브리지 논문 31편을 센 그림이다. 여기서는 GR-2와 Cosmos Policy가 `video + action`을 함께 생성하는 G3 direct policy로 나타난다. 앞 그림에서 G3가 0이었던 것은 G3 논문이 없어서가 아니라, 연구자의 원래 출발점을 세고 있었기 때문이다.
 
 ![브리지 논문의 최종 아키텍처](assets/bridge_paper_architecture_to_robot_role.png)
 
@@ -57,7 +74,8 @@ G3와 A가 모두 `direct policy`로 이어지는 것은 맞다. 둘을 나눈 �
 아래 엑셀에는 이 글에 다 넣지 못한 연구자·논문 목록과 판단 근거 URL이 들어 있다.
 
 - [조사 데이터 내려받기](video_to_robotics_architecture_pilot.xlsx)
-- 조사 기준일: 2026-08-30
+- 목록 수정일: 2026-09-02
+- 인용수 기준일: 기존 40편은 2026-08-30, 이번에 추가한 15편은 2026-09-02
 
 ### 목록을 만든 기준
 
@@ -67,7 +85,9 @@ G3와 A가 모두 `direct policy`로 이어지는 것은 맞다. 둘을 나눈 �
 
 반대로 컴퓨터 비전과 로보틱스를 모두 했다는 이유만으로 넣지는 않았다. 로봇 조직으로 소속이 바뀐 것만으로도 전환이라 부르지 않았다. 로보틱스에서는 중요하지만 비디오 출발점이 약한 연구자는 `Robotics-first` 비교군으로 일부 남겼다.
 
-`Evidence_strength`는 전환 유형과 별개의 근거 등급이다. 비디오와 로보틱스 양쪽에서 직접 저자로 참여한 논문이나 공식 프로젝트 역할을 확인할 수 있으면 `High`로, 한쪽 연결이 팀 단위 발표·최근 프로젝트 페이지·간접적인 아키텍처 계보에 기대거나 직접 저자 여부를 충분히 확인하지 못했으면 `Medium`으로 두었다. `Partial coverage`는 또 다른 값이다. 이는 대표 논문 두 편 중 한쪽의 인용수를 채우지 못했다는 뜻이지, 근거가 약하다는 뜻은 아니다.
+`Evidence_strength`는 전환 유형과 별개의 근거 등급이다. 비디오와 로보틱스 양쪽에서 직접 저자로 참여한 논문이나 공식 프로젝트 역할을 확인할 수 있으면 `High`로, 한쪽 연결이 팀 단위 발표·최근 프로젝트 페이지·간접적인 아키텍처 계보에 기대거나 직접 저자 여부를 충분히 확인하지 못했으면 `Medium`으로 두었다.
+
+`Citation_coverage`는 이와 별개다. 대표 비디오 논문과 로보틱스 논문의 ID가 모두 논문 표에 있고, 두 인용수까지 채워졌으면 `Both selected papers covered`다. ID·연결·인용수 중 하나라도 빠지면 `Partial / missing selected-paper coverage`로 뒀다. 현재 57명 중 10명이 Partial이다. 이 열은 연구 연결의 신뢰도가 아니라 **점수를 계산할 자료가 완성됐는지**를 뜻한다. Partial 사례의 Bridge Impact는 0이 아니라 `N/A`이며 순위에서도 제외했다.
 
 ### 인용수는 누적값과 연차 보정값을 같이 봤다
 
@@ -94,7 +114,7 @@ $$
 = \sqrt{(C_{video}+1)(C_{robotics}+1)} \times w_{evidence}
 $$
 
-근거가 `High`이면 1.0, `Medium`이면 0.8을 곱했다. 0.8은 통계적으로 추정한 계수가 아니라, 연결 근거가 덜 직접적인 사례를 보수적으로 낮추기 위한 규칙이다. 한쪽 논문만 인용수가 큰 사람이 지나치게 올라가지 않도록 산술평균 대신 기하평균을 썼다. 이 기준에서는 Chelsea Finn, Sergey Levine, Ming-Yu Liu, Oier Mees, Thomas Brox가 앞에 놓였고 Agrim Gupta는 17위였다. Agrim Gupta가 중요하지 않다는 뜻은 아니다. 처음 떠올린 사례라는 이유만으로 1번에 놓였던 순서를 걷어낸 것이다.
+근거가 `High`이면 1.0, `Medium`이면 0.8을 곱했다. 0.8은 통계적으로 추정한 계수가 아니라, 연결 근거가 덜 직접적인 사례를 보수적으로 낮추기 위한 규칙이다. 한쪽 논문만 인용수가 큰 사람이 지나치게 올라가지 않도록 산술평균 대신 기하평균을 썼다. `Important_both=Yes`이고 두 대표 논문의 coverage가 모두 있는 사람만 계산했다. 이 기준에서는 Chelsea Finn, Sergey Levine, Ming-Yu Liu, Oier Mees, Thomas Brox가 앞에 놓였고 Agrim Gupta는 17위였다. Agrim Gupta가 중요하지 않다는 뜻은 아니다. 처음 떠올린 사례라는 이유만으로 1번에 놓였던 순서를 걷어낸 것이다.
 
 ### 이 숫자를 그대로 순위표로 보기는 어렵다
 
