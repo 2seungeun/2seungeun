@@ -35,13 +35,21 @@ Only two people fit a narrow definition of switching fields. The more common pat
 
 ## Similar video models took on different roles in robotics
 
-Video generation, understanding, and video-language reach robotics in different ways. Even within the generative family, a model that produces future scenes does not play the same role as one that emits actions alongside them. The tables below trace this flow along three axes:
+At first, I thought a split between video generation and video understanding would be enough. Once the papers were laid out together, however, the paths within those categories turned out to be different.
 
-1. **Video mechanism**: what is learned or predicted from video
-2. **Focal output**: what the paper's model actually emits
-3. **Robot role**: perception, reward, data generation, world simulation, planning, or direct policy
+Video models that generate or predict future scenes tended to lead toward world simulation and planning. Models such as V-JEPA predict the future without reconstructing pixels, so I separated them from conventional video generation as `latent prediction`. Models trained on motion or tracking often connected to robotic perception, affordance, and video-conditioned policies. I treated video-language as a separate path as well: it aligns video and language into representations used for reward or reasoning, rather than directly producing actions like a VLA model.
 
-### Video mechanism
+The codes in the figures reflect both **what the model is trained to produce** and **whether action appears as an input, an output, or both**. This is how G1, G2, G3, and A are separated.
+
+“Video mechanism” asks **what the robotics paper carries over from video research**. “Focal output” asks **what the robot model actually emits**. For G1 and G2 papers, the answers are often identical, which can make the two views look redundant. UniPi carries over video generation and emits a video plan, so it is G1 → G1. Visual Foresight carries over action-conditioned video prediction and emits future video, so it is G2 → G2.
+
+The difference becomes clearer with a paper such as Track2Act. It learns point tracks from internet video, so its video mechanism is U2, but the robot model ultimately emits actions, so its focal output is A. The mechanism view preserves the video lineage but hides the final policy structure; the output view shows the policy structure but loses where it came from. The same 31 papers are therefore shown through **two questions: origin and destination**.
+
+1. **Video mechanism**: what was learned or predicted from video
+2. **Focal output**: what the robotics paper's model actually emits
+3. **Robot role**: whether it is used for perception, reward, data generation, world simulation, planning, or direct policy
+
+### What came from video
 
 | Code | Short meaning | Boundary | Common robotics role |
 |---|---|---|---|
@@ -56,7 +64,7 @@ Video generation, understanding, and video-language reach robotics in different 
 
 Within the generative family, G1, G2, and G3 are separated mainly by **what the model outputs**, not merely by whether action appears somewhere in the system. G1 emits visual content without action as a central condition. G2 may take action as a condition but emits future visual states. G3 emits visual states and actions jointly.
 
-### Focal output
+### What the robotics paper outputs
 
 | Code | What the paper emits | How to read it |
 |---|---|---|
@@ -70,15 +78,12 @@ Within the generative family, G1, G2, and G3 are separated mainly by **what the 
 G3 and A can both end in a direct policy. They are separated not because their robot roles differ, but because their output modalities and training structures do: G3 generates future visual states and actions together, while A generates actions only.
 
 <details>
-<summary><strong>Game-oriented G2 papers are included</strong> <em>(expand for why they are not counted as direct robotics evidence)</em></summary>
-
-[GameNGen](https://arxiv.org/abs/2408.14837) and [Genie](https://arxiv.org/abs/2402.15391) meet the architectural definition. They generate the next visual state from past frames and actions, or from latent actions learned from video, so both are G2. Neither paper demonstrates transfer to a robot or physical system. I therefore retain them as Adjacent context but exclude them from the 31 direct bridge papers. **Being G2** and **showing a robotics transfer** are separate judgments.
-
-![Lineage of game and general interactive G2 models](assets/interactive_g2_lineage.png)
-
+<summary><strong>Game-oriented G2 boundary cases</strong> <em>(expand)</em></summary>
+<p><a href="https://arxiv.org/abs/2408.14837">GameNGen</a> and <a href="https://arxiv.org/abs/2402.15391">Genie</a> are G2 because they generate the next visual state from past frames and actions, or from latent actions learned from video. Neither paper demonstrates transfer to a robot or physical system. They remain useful context for the technical lineage but are excluded from the 31 direct bridge papers. <strong>Being G2</strong> and <strong>showing a robotics transfer</strong> are separate judgments.</p>
+<img src="assets/interactive_g2_lineage.png" alt="Lineage of game and general interactive G2 models" loading="lazy" style="width:100%;height:auto;">
 </details>
 
-## Researcher starting points and paper structures told different stories
+## U2 was the most common researcher starting point, while G2 dominated the direct papers
 
 The first chart counts researcher starting points. Each person receives one representative video mechanism and one primary robotics role. Tim Rocktäschel is shown under “no verified robot role” because I could not verify a physical-robot paper for him. G3 is zero because no researcher in this sample was assigned G3 as the representative starting point. It does not mean that the paper set contains no G3 models.
 
@@ -94,7 +99,18 @@ The next two charts count the 31 direct bridge papers rather than people. They u
 
 In the second chart, GR-2 and Cosmos Policy appear under G3 → Direct policy, while action-only policies remain under A → Direct policy. Their robotics role may be the same, but jointly generating visual states and actions is structurally different from generating actions alone.
 
-## I looked at both cumulative and age-adjusted citations
+U2 is the largest representative starting point with 14 researchers, followed closely by G1 and G2 with 13 each. Among the direct bridge papers, however, G2 is the largest mechanism group at 14 of 31 papers. Researcher backgrounds are spread fairly broadly across generation and understanding, but the clearest paper-level path into robotics runs from **action-conditioned future prediction to planning and world simulation**.
+
+Separating generation, understanding, and video-language—and then tracing their roles in robotics—changed my initial impression. The larger pattern seems to be less about people moving fields and more about **representations and predictive structures learned from video moving into robotic world models, planning, and policies**.
+
+## Reference
+
+The spreadsheet contains the 57-researcher table, the 66-paper table, both architecture matrices, transition counts, classification rules, and source links.
+
+- [Download the research data](video_to_robotics_architecture_pilot.xlsx)
+- Citation snapshot: September 2, 2026
+
+### I looked at both cumulative and age-adjusted citations
 
 All citation counts use the [OpenAlex](https://openalex.org/) cited_by_count snapshot from September 2, 2026. Different scholarly search services merge paper versions differently, so these are source-specific values intended for comparison within one snapshot.
 
@@ -119,7 +135,7 @@ $$
 
 Evidence_strength receives a weight of 1.0 for High and 0.8 for Medium. High means direct authorship on both sides or a verified official project role. Medium means one side relies on a team announcement, a recent project page, an indirect technical lineage, or authorship that could not be verified with enough confidence. The 0.8 weight is a conservative rule, not a statistically estimated coefficient.
 
-When one bridge paper supplies both the video and robotics evidence, it remains useful evidence but its citation count is not entered twice into the geometric mean. The 57 researchers divide exactly as follows:
+When a single paper directly bridges video and robotics, it remains an important bridge case. The ranking, however, compares influence verified through two distinct papers, so single-paper cases are reported separately rather than scored. The 57 researchers divide as follows:
 
 | Score-data status | Count | Ranking treatment |
 |---|---:|---|
@@ -130,19 +146,10 @@ When one bridge paper supplies both the video and robotics evidence, it remains 
 
 Under this rule, Chelsea Finn and Sergey Levine are tied for first, Thomas Brox is third, and Frederik Ebert and Sudeep Dasari are tied for fourth. Agrim Gupta is tied for seventh.
 
-## These numbers should not be read as a general ranking
+### These numbers should not be read as a general ranking
 
 Bridge Impact first selects people with important work visible on both the video and robotics sides, then scores that intersection. Researchers already known in both areas are likely to rank highly partly because of that sampling rule. The metric is not designed to discover new switchers independently or to measure overall career impact.
 
 Selecting one or two representative papers also leaves out contributions, and citation counts cannot separate the roles of individual coauthors. Papers from 2025–2026 can change position quickly. Cumulative citations, the age-adjusted view, and the qualitative evidence should therefore be read together.
-
-Separating generation, understanding, and video-language—and then tracing their roles in robotics—changed my initial impression. The larger pattern seems to be less about people moving fields and more about **representations and predictive structures learned from video moving into robotic world models, planning, and policies**.
-
-## Reference
-
-The spreadsheet contains the 57-researcher table, the 66-paper table, both architecture matrices, transition counts, correction log, and source links.
-
-- [Download the research data](video_to_robotics_architecture_pilot.xlsx)
-- Citation snapshot: September 2, 2026
 
 <p align="center" class="article-copyright">© 2026 Seungeun Lee. All rights reserved.</p>
