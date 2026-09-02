@@ -1,6 +1,6 @@
 # From Video Models to Robotics
 
-[한국어](README.md) | **English**
+[한국어](https://2seungeun.github.io/2seungeun/notes/01-video-to-robotics-transition/) | **English**
 
 This note began with a simple impression: a surprising number of people who worked on video now seem to be moving into robotics. To see whether that impression holds, I looked beyond current affiliations and traced both the video problems these researchers originally worked on and where that experience later appeared in robotics.
 

@@ -1,0 +1,10 @@
+title: Physical AI Notes
+description: Research notes on video generation, video understanding, world models, robotics, and Physical AI.
+url: "https://2seungeun.github.io"
+baseurl: "/2seungeun"
+theme: jekyll-theme-minimal
+lang: ko
+show_downloads: false
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
