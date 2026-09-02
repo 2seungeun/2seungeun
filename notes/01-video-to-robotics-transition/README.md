@@ -40,6 +40,10 @@
 | VL | video-language 정렬 및 추론 표현 | 출력 기준으로 나누지 않음 | reward, reasoning, policy conditioning |
 | A | action trajectory, token | action만 출력 | direct policy |
 
+#### 게임형 G2는 넣되, 로보틱스 근거로 세지는 않았다
+[GameNGen](https://arxiv.org/abs/2408.14837)과 [Genie](https://arxiv.org/abs/2402.15391)는 아키텍처 기준에는 분명히 들어온다. 과거 화면과 action, 또는 영상에서 학습한 latent action을 조건으로 다음 화면을 만들기 때문에 둘 다 G2다. 다만 두 논문 자체에는 로봇이나 물리 시스템으로의 전이가 없다. 그래서 **로봇 실험은 없지만 같은 기술 흐름을 보여주는 논문**으로 넣고, 엑셀에서만 `Adjacent`라고 표시했다. 31편짜리 직접 연결 통계에서는 제외했다. **G2인가**와 **로보틱스로 실제 이어졌는가**를 별개의 판정으로 본 셈이다.
+![게임·일반 interactive G2 계보](assets/interactive_g2_lineage.png)
+
 G3와 A가 모두 `direct policy`로 이어지는 것은 맞다. 둘을 나눈 이유는 로봇에서의 역할이 달라서가 아니라 출력 모달리티와 학습 구조가 다르기 때문이다. G3는 미래의 시각 상태와 action을 함께 만들고, A는 action만 만든다.
 
 먼저 연구자의 출발점만 따로 셌다. 각 사람에게 대표 비디오 출발점 하나와 로보틱스에서의 주 역할 하나를 부여했다. 단, G3와 A는 비디오 연구의 출발점이라기보다 로봇 단계에서 생기는 구조라 이 그림에서는 뺐다.
@@ -49,6 +53,7 @@ G3와 A가 모두 `direct policy`로 이어지는 것은 맞다. 둘을 나눈 �
 다음은 사람 대신 직접 연결이 확인된 브리지 논문 31편을 센 그림이다. 여기서는 GR-2와 Cosmos Policy가 `video + action`을 함께 생성하는 G3 direct policy로 나타난다. (참고로 앞 그림에서 G3가 0이었던 것은 G3 논문이 없어서가 아니라, 연구자의 원래 출발점을 세고 있었기 때문임)
 
 ![브리지 논문의 최종 아키텍처](assets/bridge_paper_architecture_to_robot_role.png)
+
 
 ## 참고
 
@@ -106,8 +111,4 @@ $$
 그래도 생성, 이해, video-language를 한 덩어리로 세지 않고 로봇에서 맡는 역할까지 연결해 보니 처음의 막연한 인상은 조금 달라졌다. 사람의 이동 자체보다, **비디오에서 배운 표현과 예측 구조가 로봇의 world model, planning, policy로 옮겨가는 과정**이 더 큰 흐름에 가까웠다.
 
 
-### 게임형 G2는 넣되, 로보틱스 근거로 세지는 않았다
 
-[GameNGen](https://arxiv.org/abs/2408.14837)과 [Genie](https://arxiv.org/abs/2402.15391)는 아키텍처 기준에는 분명히 들어온다. 과거 화면과 action, 또는 영상에서 학습한 latent action을 조건으로 다음 화면을 만들기 때문에 둘 다 G2다. 다만 두 논문 자체에는 로봇이나 물리 시스템으로의 전이가 없다. 그래서 **로봇 실험은 없지만 같은 기술 흐름을 보여주는 논문**으로 넣고, 엑셀에서만 `Adjacent`라고 표시했다. 31편짜리 직접 연결 통계에서는 제외했다. **G2인가**와 **로보틱스로 실제 이어졌는가**를 별개의 판정으로 본 셈이다.
-
-![게임·일반 interactive G2 계보](assets/interactive_g2_lineage.png)
