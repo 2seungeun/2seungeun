@@ -2,6 +2,8 @@
 
 [한국어](https://2seungeun.github.io/2seungeun/notes/01-video-to-robotics-transition/) | **English**
 
+<p class="article-byline">Seungeun Lee · September 1, 2026</p>
+
 This note began with a simple impression: a surprising number of people who worked on video now seem to be moving into robotics. To see whether that impression holds, I looked beyond current affiliations and traced both the video problems these researchers originally worked on and where that experience later appeared in robotics.
 
 I collected 57 researchers and 55 papers as two separate sets. The papers comprise **31 with a direct, paper-level connection to robotics**, **17 without robot experiments but useful for tracing the same technical lineage**, and **7 representative video- or robotics-side references retained as comparison points**. These groups are labeled `Yes`, `Adjacent`, and `No`, respectively, in the spreadsheet. Researchers and papers do not map one-to-one: a paper may have several relevant authors, and a researcher may appear across several papers. Only for the researcher ranking did I select one representative video paper and one representative robotics paper per person.
