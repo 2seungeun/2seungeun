@@ -6,7 +6,7 @@
 
 This note began with the impression that many people who worked on video were moving into robotics. Current affiliations alone did not tell that story very well. I needed to look at the video problems each researcher had worked on and where that experience later appeared in robotics.
 
-The audited sample now contains 57 researchers and 66 papers. These are not one-to-one lists: a paper can have several relevant authors, and a researcher can appear on several papers. I selected one representative video paper and one representative robotics paper only when making researcher-level comparisons.
+This note covers 57 researchers and 66 papers. These are not one-to-one lists: a paper can have several relevant authors, and a researcher can appear on several papers. I selected one representative video paper and one representative robotics paper only when making researcher-level comparisons.
 
 The papers are grouped by how they are used in the analysis.
 
@@ -16,7 +16,7 @@ The papers are grouped by how they are used in the analysis.
 | Context and lineage papers | 22 | No direct robotics transfer is demonstrated, but the paper is needed to trace or compare the technical lineage | Adjacent |
 | One-side reference papers | 13 | A representative video-side or robotics-side paper used to establish a researcher's starting point or destination | No |
 
-## The research boundary blurred more than people switched fields
+## The boundary was blurring more than people were switching fields
 
 Each of the 57 researchers is assigned to exactly one of five transition types.
 
@@ -33,9 +33,9 @@ Only two people fit a narrow definition of switching fields. The more common pat
 
 ![Researcher transition types](assets/researcher_transition_types.png)
 
-## I separated the video mechanism, model output, and robot role
+## Similar video models took on different roles in robotics
 
-The main problem with the previous table was that a single architecture column mixed three different questions. The revised version keeps them separate:
+Video generation, understanding, and video-language reach robotics in different ways. Even within the generative family, a model that produces future scenes does not play the same role as one that emits actions alongside them. The tables below trace this flow along three axes:
 
 1. **Video mechanism**: what is learned or predicted from video
 2. **Focal output**: what the paper's model actually emits
@@ -78,13 +78,13 @@ G3 and A can both end in a direct policy. They are separated not because their r
 
 </details>
 
-## Researchers and papers are shown in separate charts
+## Researcher starting points and paper structures told different stories
 
 The first chart counts researcher starting points. Each person receives one representative video mechanism and one primary robotics role. Tim Rocktäschel is shown under “no verified robot role” because I could not verify a physical-robot paper for him. G3 is zero because no researcher in this sample was assigned G3 as the representative starting point. It does not mean that the paper set contains no G3 models.
 
 ![Researchers by video starting point](assets/architecture_to_robot_role.png)
 
-After rechecking the underlying rows, G1 → Planning contains six researchers: Yilun Du, Jiajun Wu, Karthik Dharmarajan, Ruohan Zhang, Sherry Yang, and Wenlong Huang. The earlier count of five came from not applying G1 consistently to Yilun Du's representative starting paper, UniPi.
+G1 → Planning contains six researchers: Yilun Du, Jiajun Wu, Karthik Dharmarajan, Ruohan Zhang, Sherry Yang, and Wenlong Huang.
 
 The next two charts count the 31 direct bridge papers rather than people. They use separate vertical axes because what a paper carries over from video can differ from what its final model emits.
 
@@ -92,9 +92,9 @@ The next two charts count the 31 direct bridge papers rather than people. They u
 
 ![Direct bridge papers by focal output and robot role](assets/bridge_paper_output_to_robot_role.png)
 
-In the second chart, GR-2 and Cosmos Policy appear under G3 → Direct policy. Action-only policies remain under A → Direct policy. This keeps G3 visible without folding it into A.
+In the second chart, GR-2 and Cosmos Policy appear under G3 → Direct policy, while action-only policies remain under A → Direct policy. Their robotics role may be the same, but jointly generating visual states and actions is structurally different from generating actions alone.
 
-## Citations and researcher scores were recalculated
+## I looked at both cumulative and age-adjusted citations
 
 All citation counts use the [OpenAlex](https://openalex.org/) cited_by_count snapshot from September 2, 2026. Different scholarly search services merge paper versions differently, so these are source-specific values intended for comparison within one snapshot.
 
@@ -128,9 +128,9 @@ When one bridge paper supplies both the video and robotics evidence, it remains 
 | Representative paper or citation input partially missing | 11 | Excluded |
 | **Total** | **57** |  |
 
-Under this rule, Chelsea Finn and Sergey Levine are tied for first, Thomas Brox is third, and Frederik Ebert and Sudeep Dasari are tied for fourth. Agrim Gupta is tied for seventh. The ordering now follows the selected papers and one citation snapshot rather than the order in which names first came to mind.
+Under this rule, Chelsea Finn and Sergey Levine are tied for first, Thomas Brox is third, and Frederik Ebert and Sudeep Dasari are tied for fourth. Agrim Gupta is tied for seventh.
 
-## This is not a general ranking of researchers
+## These numbers should not be read as a general ranking
 
 Bridge Impact first selects people with important work visible on both the video and robotics sides, then scores that intersection. Researchers already known in both areas are likely to rank highly partly because of that sampling rule. The metric is not designed to discover new switchers independently or to measure overall career impact.
 
