@@ -25,34 +25,34 @@
 
 처음에는 비디오 생성과 이해 정도만 나누면 될 줄 알았다. 그런데 논문을 모아 놓고 보니 그 안에서도 경로가 달랐다.
 
-모션이나 트래킹을 배우는 모델은 로봇의 perception, affordance, video-conditioned policy로 연결되는 경우가 많았다. 반면 미래 장면을 생성하거나 예측하는 모델은 world simulation과 planning 쪽으로 이어졌다. V-JEPA처럼 미래를 예측하더라도 픽셀을 복원하지 않는 모델은 일반적인 비디오 생성과 묶기 어려워 `latent prediction`으로 따로 뒀다. Video-language도 마찬가지다. 영상과 언어를 정렬해 얻은 표현이 reward나 reasoning에 쓰이는 흐름이라, 바로 action을 내는 VLA와는 구분했다.
+비디오 생성에서 미래 장면을 생성하거나 예측하는 모델은 world simulation과 planning 쪽으로 이어졌다. V-JEPA처럼 미래를 예측하더라도 픽셀을 복원하지 않는 모델은 일반적인 비디오 생성과 묶기 어려워 `latent prediction`으로 따로 뒀다. 모션이나 트래킹을 배우는 모델은 로봇의 perception, affordance, video-conditioned policy로 연결되는 경우가 많았다. Video-language는 영상과 언어를 정렬해 얻은 표현이 reward나 reasoning에 쓰이는 흐름이라, 바로 action을 출력하는 VLA와는 구분했다.
 
 그림에 쓴 코드는 아래처럼 읽으면 된다. 생성·예측 계열은 **무엇을 만들도록 학습했는지**와 **action이 입력과 출력 중 어디에 놓이는지**를 함께 보고 G1, G2, G3, A로 나눴다.
 
 | 코드 | 주 출력 또는 학습 대상 | action의 위치 | 로봇에서 주로 이어진 역할 |
 |---|---|---|---|
-| G1 | 비디오 픽셀·토큰 | 없거나 핵심 조건이 아님 | synthetic data, visual subgoal, video plan |
-| G2 | 미래 비디오·상태 | 조건으로 받을 수 있지만 출력하지 않음 | world simulation, planning |
-| G3 | 비디오·미래 상태와 action | 둘을 함께 출력 | direct policy |
-| U1 | 행동·사건·의미 표현 | 출력 기준으로 나누지 않음 | perception backbone |
-| U2 | 모션·트래킹·상호작용 표현 | 출력 기준으로 나누지 않음 | perception, reward, policy condition |
+| G1 | 비디오 픽셀 및 토큰 | 없거나 핵심 조건이 아님 | synthetic data, visual subgoal, video plan |
+| G2 | 미래 비디오 및 상태 | 조건으로 받을 수 있지만 출력하지 않음 | world simulation, planning |
+| G3 | 비디오 및 미래 상태와 action | 둘을 함께 출력 | direct policy |
+| U1 | 행동, 사건, 의미 표현 | 출력 기준으로 나누지 않음 | perception backbone |
+| U2 | 모션, 트래킹, 상호작용 표현 | 출력 기준으로 나누지 않음 | perception, reward, policy condition |
 | U3 | 미래 latent representation | 조건으로 받을 수 있음 | latent planning |
-| VL | video-language 정렬·추론 표현 | 출력 기준으로 나누지 않음 | reward, reasoning, policy conditioning |
-| A | action trajectory·token | action만 출력 | direct policy |
+| VL | video-language 정렬 및 추론 표현 | 출력 기준으로 나누지 않음 | reward, reasoning, policy conditioning |
+| A | action trajectory, token | action만 출력 | direct policy |
 
 G3와 A가 모두 `direct policy`로 이어지는 것은 맞다. 둘을 나눈 이유는 로봇에서의 역할이 달라서가 아니라 출력 모달리티와 학습 구조가 다르기 때문이다. G3는 미래의 시각 상태와 action을 함께 만들고, A는 action만 만든다.
 
-먼저 연구자의 출발점만 따로 셌다. 각 사람에게 대표 비디오 출발점 하나와 로보틱스에서의 주 역할 하나를 부여했다. G3와 A는 비디오 연구의 출발점이라기보다 로봇 단계에서 생기는 구조라 이 그림에서는 뺐다.
+먼저 연구자의 출발점만 따로 셌다. 각 사람에게 대표 비디오 출발점 하나와 로보틱스에서의 주 역할 하나를 부여했다. 단, G3와 A는 비디오 연구의 출발점이라기보다 로봇 단계에서 생기는 구조라 이 그림에서는 뺐다.
 
 ![연구자의 비디오 출발점](assets/architecture_to_robot_role.png)
 
-다음은 사람 대신 직접 연결이 확인된 브리지 논문 31편을 센 그림이다. 여기서는 GR-2와 Cosmos Policy가 `video + action`을 함께 생성하는 G3 direct policy로 나타난다. 앞 그림에서 G3가 0이었던 것은 G3 논문이 없어서가 아니라, 연구자의 원래 출발점을 세고 있었기 때문이다.
+다음은 사람 대신 직접 연결이 확인된 브리지 논문 31편을 센 그림이다. 여기서는 GR-2와 Cosmos Policy가 `video + action`을 함께 생성하는 G3 direct policy로 나타난다. (참고로 앞 그림에서 G3가 0이었던 것은 G3 논문이 없어서가 아니라, 연구자의 원래 출발점을 세고 있었기 때문임)
 
 ![브리지 논문의 최종 아키텍처](assets/bridge_paper_architecture_to_robot_role.png)
 
 ## 참고
 
-아래 엑셀에는 이 글에 다 넣지 못한 연구자·논문 목록과 판단 근거 URL이 들어 있다.
+아래 엑셀에는 이 글에 다 넣지 못한 연구자와 논문의 목록과 판단 근거 등이 포함되어 있다.
 
 - [조사 데이터 내려받기](video_to_robotics_architecture_pilot.xlsx)
 - 목록 수정일: 2026-09-02
@@ -60,15 +60,13 @@ G3와 A가 모두 `direct policy`로 이어지는 것은 맞다. 둘을 나눈 �
 
 ### 목록을 만든 기준
 
-비디오 생성·예측·이해 분야에서 대표 작업을 한 뒤 로봇 학습이나 embodied AI에서 중요한 논문을 쓴 경우를 먼저 찾았다. 한 논문 안에서 비디오 모델이 perception, reward, data generation, world simulation, planning, policy에 직접 사용된 경우도 포함했다.
+비디오 생성, 예측, 이해 분야에서 대표 작업을 한 뒤 로봇 학습이나 embodied AI에서 중요한 논문을 쓴 경우를 먼저 찾았다. 한 논문 안에서 비디오 모델이 perception, reward, data generation, world simulation, planning, policy에 직접 사용된 경우도 포함했다.
 
-유럽 쪽 흐름도 놓치지 않으려고 Paris, London, Oxford, Freiburg 연구 클러스터를 별도로 확인했다. 여기서 지역은 국적이나 현재 거주지를 뜻하지 않고, 이 조사에서 확인한 연구 조직과 논문의 맥락에 가깝다.
+컴퓨터 비전과 로보틱스를 모두 했다는 이유만으로 넣지는 않았다. 로봇 조직으로 소속이 바뀐 것만으로도 전환이라 부르지 않았다. 로보틱스에서는 중요하지만 비디오 출발점이 약한 연구자는 `Robotics-first` 비교군으로 일부 남겼다.
 
-반대로 컴퓨터 비전과 로보틱스를 모두 했다는 이유만으로 넣지는 않았다. 로봇 조직으로 소속이 바뀐 것만으로도 전환이라 부르지 않았다. 로보틱스에서는 중요하지만 비디오 출발점이 약한 연구자는 `Robotics-first` 비교군으로 일부 남겼다.
+`Evidence_strength`는 전환 유형과 별개의 근거 등급이다. 비디오와 로보틱스 양쪽에서 직접 저자로 참여한 논문이나 공식 프로젝트 역할을 확인할 수 있으면 `High`로, 한쪽 연결이 팀 단위 발표/최근 프로젝트 페이지/간접적인 아키텍처 계보에 기대거나 직접 저자 여부를 충분히 확인하지 못했으면 `Medium`으로 두었다.
 
-`Evidence_strength`는 전환 유형과 별개의 근거 등급이다. 비디오와 로보틱스 양쪽에서 직접 저자로 참여한 논문이나 공식 프로젝트 역할을 확인할 수 있으면 `High`로, 한쪽 연결이 팀 단위 발표·최근 프로젝트 페이지·간접적인 아키텍처 계보에 기대거나 직접 저자 여부를 충분히 확인하지 못했으면 `Medium`으로 두었다.
-
-`Citation_coverage`는 이와 별개다. 대표 비디오 논문과 로보틱스 논문의 ID가 모두 논문 표에 있고, 두 인용수까지 채워졌으면 `Both selected papers covered`다. ID·연결·인용수 중 하나라도 빠지면 `Partial / missing selected-paper coverage`로 뒀다. 현재 57명 중 10명이 Partial이다. 이 열은 연구 연결의 신뢰도가 아니라 **점수를 계산할 자료가 완성됐는지**를 뜻한다. Partial 사례의 Bridge Impact는 0이 아니라 `N/A`이며 순위에서도 제외했다.
+`Citation_coverage`는 이와 별개다. 대표 비디오 논문과 로보틱스 논문의 ID가 모두 논문 표에 있고, 두 인용수까지 채워졌으면 `Both selected papers covered`다. ID, 연결, 인용수 중 하나라도 빠지면 `Partial / missing selected-paper coverage`로 뒀다. 현재 57명 중 10명이 Partial이다. 이 열은 연구 연결의 신뢰도가 아니라 **점수를 계산할 자료가 완성됐는지**를 뜻한다. Partial 사례의 Bridge Impact는 0이 아니라 `N/A`이며 순위에서도 제외했다.
 
 ### 인용수는 누적값과 연차 보정값을 같이 봤다
 
