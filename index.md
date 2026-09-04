@@ -15,6 +15,6 @@ Research notes tracing how video generation, video understanding, and video-lang
 
 ### 1. 비디오 모델은 어떻게 로보틱스로 이어졌나
 
-생성, 이해, 비디오-언어 연구가 로봇의 인지, 월드 모델, 계획, 정책으로 연결되는 경로를 연구자 57명과 논문 55편을 통해 정리했다.
+생성, 이해, 비디오-언어 연구가 로봇의 인지, 월드 모델, 계획, 정책으로 연결되는 경로를 연구자 46명과 논문 74편을 통해 정리했다.
 
 [한국어로 읽기]({{ site.baseurl }}/notes/01-video-to-robotics-transition/) · [Read in English]({{ site.baseurl }}/notes/01-video-to-robotics-transition/english.html)
