@@ -45,3 +45,11 @@ The current sample is **46 researchers / 74 reference entries / 34 direct bridge
 - Added a bilingual current-research section, a machine-readable JSON record, and the `Update_2026_11_03` workbook sheet.
 - Preserved the original 46-person / 74-reference statistical sample and the September 2 citation snapshot. Combined archive: 84 references. New mechanism mappings are provisional; no new researcher assignments or current citation rankings are claimed.
 - Disambiguated three unrelated R²-WAM papers by title and arXiv ID. Treated Genie 4 as an official simulation announcement, not evidence of physical policy transfer.
+
+## 2026-11-03 — 인용수·순위 갱신 / Citation refresh
+
+- Retrieved 82 research-paper records from OpenAlex; two official articles/announcements are not applicable. Counts of zero are observed record values, not missing lookups.
+- Corrected mismatched work IDs for P067, P068, P069, P070, P072 and P074 using title, authors and DOI. Retained other matched records, without summing preprint/conference versions.
+- Recomputed combined paper citation ranks, original direct-bridge ranks, 23 eligible researcher scores/ranks, and age-adjusted counts using unchanged first-publication years. Updated both citation-bearing figures.
+- Added current retrieval/matching JSON, researcher ranking JSON and a clearly marked legacy snapshot. The old values are not a validated citation-growth baseline.
+- Updated Korean/English text and workbook inputs, formulas, citation dates and snapshot sheet.

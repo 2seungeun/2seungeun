@@ -1,0 +1,209 @@
+[
+  {
+    "rank": 1,
+    "name": "Chelsea Finn",
+    "score": 388.4,
+    "video_id": "P009",
+    "robot_id": "P056",
+    "video_citations": 600,
+    "robot_citations": 250
+  },
+  {
+    "rank": 1,
+    "name": "Sergey Levine",
+    "score": 388.4,
+    "video_id": "P009",
+    "robot_id": "P056",
+    "video_citations": 600,
+    "robot_citations": 250
+  },
+  {
+    "rank": 3,
+    "name": "Thomas Brox",
+    "score": 293.6,
+    "video_id": "P062",
+    "robot_id": "P063",
+    "video_citations": 4309,
+    "robot_citations": 19
+  },
+  {
+    "rank": 4,
+    "name": "Deepak Pathak",
+    "score": 197.86,
+    "video_id": "P069",
+    "robot_id": "P036",
+    "video_citations": 449,
+    "robot_citations": 86
+  },
+  {
+    "rank": 5,
+    "name": "Frederik Ebert",
+    "score": 176.42,
+    "video_id": "P056",
+    "robot_id": "P037",
+    "video_citations": 250,
+    "robot_citations": 123
+  },
+  {
+    "rank": 5,
+    "name": "Sudeep Dasari",
+    "score": 176.42,
+    "video_id": "P056",
+    "robot_id": "P037",
+    "video_citations": 250,
+    "robot_citations": 123
+  },
+  {
+    "rank": 7,
+    "name": "Xiaolong Wang",
+    "score": 115.25,
+    "video_id": "P072",
+    "robot_id": "P073",
+    "video_citations": 457,
+    "robot_citations": 28
+  },
+  {
+    "rank": 8,
+    "name": "Agrim Gupta",
+    "score": 89.33,
+    "video_id": "P001",
+    "robot_id": "P019",
+    "video_citations": 83,
+    "robot_citations": 94
+  },
+  {
+    "rank": 8,
+    "name": "Fei-Fei Li",
+    "score": 89.33,
+    "video_id": "P001",
+    "robot_id": "P019",
+    "video_citations": 83,
+    "robot_citations": 94
+  },
+  {
+    "rank": 10,
+    "name": "Linxi Fan",
+    "score": 83.28,
+    "video_id": "P024",
+    "robot_id": "P019",
+    "video_citations": 72,
+    "robot_citations": 94
+  },
+  {
+    "rank": 10,
+    "name": "Yuke Zhu",
+    "score": 83.28,
+    "video_id": "P024",
+    "robot_id": "P019",
+    "video_citations": 72,
+    "robot_citations": 94
+  },
+  {
+    "rank": 12,
+    "name": "Ming-Yu Liu",
+    "score": 33.79,
+    "video_id": "P067",
+    "robot_id": "P038",
+    "video_citations": 570,
+    "robot_citations": 1
+  },
+  {
+    "rank": 13,
+    "name": "Yusuf Aytar",
+    "score": 23.07,
+    "video_id": "P057",
+    "robot_id": "P020",
+    "video_citations": 37,
+    "robot_citations": 13
+  },
+  {
+    "rank": 14,
+    "name": "Yilun Du",
+    "score": 17.18,
+    "video_id": "P011",
+    "robot_id": "P012",
+    "video_citations": 58,
+    "robot_citations": 4
+  },
+  {
+    "rank": 15,
+    "name": "Cordelia Schmid",
+    "score": 15.3,
+    "video_id": "P023",
+    "robot_id": "P022",
+    "video_citations": 17,
+    "robot_citations": 12
+  },
+  {
+    "rank": 16,
+    "name": "Adrien Bardes",
+    "score": 13.08,
+    "video_id": "P003",
+    "robot_id": "P004",
+    "video_citations": 18,
+    "robot_citations": 8
+  },
+  {
+    "rank": 16,
+    "name": "Mahmoud Assran",
+    "score": 13.08,
+    "video_id": "P003",
+    "robot_id": "P004",
+    "video_citations": 18,
+    "robot_citations": 8
+  },
+  {
+    "rank": 16,
+    "name": "Nicolas Ballas",
+    "score": 13.08,
+    "video_id": "P003",
+    "robot_id": "P004",
+    "video_citations": 18,
+    "robot_citations": 8
+  },
+  {
+    "rank": 16,
+    "name": "Quentin Garrido",
+    "score": 13.08,
+    "video_id": "P003",
+    "robot_id": "P004",
+    "video_citations": 18,
+    "robot_citations": 8
+  },
+  {
+    "rank": 16,
+    "name": "Yann LeCun",
+    "score": 13.08,
+    "video_id": "P003",
+    "robot_id": "P004",
+    "video_citations": 18,
+    "robot_citations": 8
+  },
+  {
+    "rank": 21,
+    "name": "Oliver Groth",
+    "score": 12.17,
+    "video_id": "P059",
+    "robot_id": "P060",
+    "video_citations": 36,
+    "robot_citations": 3
+  },
+  {
+    "rank": 22,
+    "name": "Abhinav Gupta",
+    "score": 9.59,
+    "video_id": "P064",
+    "robot_id": "P014",
+    "video_citations": 45,
+    "robot_citations": 1
+  },
+  {
+    "rank": 23,
+    "name": "Jinwei Gu",
+    "score": 3.74,
+    "video_id": "P016",
+    "robot_id": "P017",
+    "video_citations": 13,
+    "robot_citations": 0
+  }
+]

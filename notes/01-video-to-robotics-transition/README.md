@@ -35,7 +35,7 @@
 
 이 자료들이 더하는 관점은 세 가지다. VERA와 RoFacto는 비디오와 로봇 사이의 **행동 인터페이스**를 구체화한다. ModAR와 표현 비교 연구는 픽셀 복원 외의 **작업에 필요한 미래 정보**를 따져 묻는다. RoboCoach와 두 후학습·replay 연구는 예측을 **데이터 선택, 정책 개선, 기존 능력 보존**에 되돌린다. 따라서 기존의 perception·simulation·planning·policy 분류에 학습 루프 안의 쓰임을 함께 기록할 필요가 있다. 이는 이 글의 해석이며, 서로 다른 논문의 성능을 직접 비교한 결론은 아니다.
 
-아래의 46명·74건 집계와 차트는 기존 표본에 대한 분석이다. 이번 10건은 엑셀의 `Update_2026_11_03` 시트 및 [갱신 데이터](updates/2026-11-03.json)에 별도로 기록했다. 합쳐서 보관한 자료는 84건이지만, 새 자료의 역할 분류는 잠정적이며 기존 34건 직접 연결 표본·연구자 행렬에는 섞지 않았다. 인용수와 영향력 순위는 **2026-09-02 스냅샷**으로 유지했다. 신규 논문의 인용수는 수집하지 않았으며 0으로 간주하지 않는다.
+아래의 46명·74건 집계와 차트는 기존 표본에 대한 분석이다. 이번 10건은 엑셀의 `Update_2026_11_03` 시트 및 [갱신 데이터](updates/2026-11-03.json)에 별도로 기록했다. 합쳐서 보관한 자료는 84건이지만, 새 자료의 역할 분류는 잠정적이며 기존 34건 직접 연결 표본·연구자 행렬에는 섞지 않았다. 인용수와 영향력 순위는 **2026-11-03 OpenAlex 조회값**으로 갱신했다. 전체 자료 중 논문 82편을 조회했고 공식 기사·발표 2건은 학술 인용수 집계에서 제외했다. 새 논문의 0은 해당 OpenAlex 레코드의 관측값이며, 모든 색인에서 인용이 없다는 뜻은 아니다.
 
 ## 전환이라기보다는 경계가 섞이고 있었다
 
@@ -79,7 +79,7 @@
 <details>
 <summary><strong>게임형 G2의 경계 사례</strong> <em>(자세히 보기)</em></summary>
 <p><a href="https://arxiv.org/abs/2408.14837">GameNGen</a>과 <a href="https://arxiv.org/abs/2402.15391">Genie</a>는 과거 화면과 action, 또는 영상에서 배운 latent action을 조건으로 다음 화면을 만들기 때문에 G2에 해당한다. 다만 두 논문 자체에는 로봇이나 물리 시스템으로의 전이가 없다. 기술 흐름을 보여주는 주변 사례에는 넣되, 직접 연결 자료 34건에서는 제외했다. <strong>G2에 해당하는가</strong>와 <strong>로보틱스로 실제 이어졌는가</strong>는 별개의 판단이다.</p>
-<p>아래 그림은 더 넓은 interactive world model 계보를 보여준다. <a href="https://arxiv.org/abs/2406.09455">Pandora</a>와 <a href="https://arxiv.org/abs/2303.13472">Promptable Game Models</a>는 언어로 표현한 action으로 상태 변화를 제어한다. 언어 조건이 있다는 사실만으로 G2 또는 VL이 되는 것은 아니다. 그림의 인용수는 엑셀과 같은 OpenAlex 2026년 9월 2일 스냅샷을 사용한다.</p>
+<p>아래 그림은 더 넓은 interactive world model 계보를 보여준다. <a href="https://arxiv.org/abs/2406.09455">Pandora</a>와 <a href="https://arxiv.org/abs/2303.13472">Promptable Game Models</a>는 언어로 표현한 action으로 상태 변화를 제어한다. 언어 조건이 있다는 사실만으로 G2 또는 VL이 되는 것은 아니다. 그림의 인용수는 엑셀과 같은 OpenAlex 2026년 11월 3일 조회값을 사용한다.</p>
 <img src="assets/interactive_g2_lineage.png" alt="게임 및 일반 interactive world model 계보" loading="lazy" style="width:100%;height:auto;">
 </details>
 
@@ -104,11 +104,11 @@ G1 → Planning에 해당하는 연구자는 5명이다. Yilun Du, Jiajun Wu, Ka
 엑셀에는 46명의 연구자 표, 74건의 논문·프로젝트 자료 표, 하나의 코드 체계로 집계한 연구자와 논문 행렬, 전환 유형, 분류 기준과 출처가 들어 있다. 이번 재검토에서는 대표 논문의 저자 목록과 링크를 다시 대조했다. 물리 로봇 연결을 개인 단위로 확인하지 못한 Andrea Vedaldi, João Carreira, José Lezama, Lijun Yu, Tim Brooks, Xun Huang은 연구자 표본에서 제외했다. 세부 수정 내역은 엑셀의 `Audit_Log` 시트에 남겼다.
 
 - [조사 데이터 내려받기](video_to_robotics_architecture_pilot.xlsx)
-- 인용수 기준일: 2026-09-02
+- 인용수 기준일: 2026-11-03
 
 ### 인용수는 누적값과 연차 보정값을 같이 봤다
 
-인용수는 2026년 9월 2일의 [OpenAlex](https://openalex.org/) cited_by_count로 통일했다. 검색 서비스마다 합본 방식이 달라 숫자는 달라질 수 있으므로, 이 값은 절대값이라기보다 같은 출처 안에서 비교하기 위한 스냅샷이다.
+인용수는 2026년 11월 3일 조회한 [OpenAlex](https://openalex.org/) cited_by_count로 통일했다. 검색 서비스마다 합본 방식이 달라 숫자는 달라질 수 있으므로, 이 값은 절대값이라기보다 같은 출처 안에서 비교하기 위한 스냅샷이다.
 
 누적 인용수만 보면 오래된 논문이 유리해진다. 최신 논문을 함께 보기 위해 다음 보조값을 계산했다.
 
@@ -141,7 +141,29 @@ Evidence_strength가 High이면 1.0, Medium이면 0.8을 곱했다. High는 양�
 | 대표 논문 또는 인용 자료가 일부 빠짐 | 0 | 제외 |
 | **합계** | **46** |  |
 
-이 기준의 상위권은 Chelsea Finn과 Sergey Levine 공동 1위, Deepak Pathak 3위, Thomas Brox 4위, Xiaolong Wang 5위다. Agrim Gupta는 공동 10위다.
+이 기준에서는 Chelsea Finn과 Sergey Levine이 공동 1위, Thomas Brox가 3위, Deepak Pathak이 4위, Frederik Ebert와 Sudeep Dasari가 공동 5위다. Agrim Gupta와 Fei-Fei Li는 공동 8위다.
+
+### 2026-11-03 인용수·순위 재계산
+
+82편의 논문을 동일한 OpenAlex 서비스에서 조회했다. 기존 대표 논문·선정 기준·가중치를 유지해 23명의 Bridge Impact를 다시 계산했다. 동점에는 같은 순위를 부여하고 다음 순위는 건너뛴다. 다음은 상위 10위 이내의 결과다.
+
+| 순위 | 연구자 | 비디오 논문 인용수 | 로봇 논문 인용수 | Bridge Impact |
+|---:|---|---:|---:|---:|
+| 1 | Chelsea Finn | 600 | 250 | 388.40 |
+| 1 | Sergey Levine | 600 | 250 | 388.40 |
+| 3 | Thomas Brox | 4,309 | 19 | 293.60 |
+| 4 | Deepak Pathak | 449 | 86 | 197.86 |
+| 5 | Frederik Ebert | 250 | 123 | 176.42 |
+| 5 | Sudeep Dasari | 250 | 123 | 176.42 |
+| 7 | Xiaolong Wang | 457 | 28 | 115.25 |
+| 8 | Agrim Gupta | 83 | 94 | 89.33 |
+| 8 | Fei-Fei Li | 83 | 94 | 89.33 |
+| 10 | Linxi Fan | 72 | 94 | 83.28 |
+| 10 | Yuke Zhu | 72 | 94 | 83.28 |
+
+이전 출처 ID 중 P067·P068·P069·P070·P072·P074는 다른 논문을 가리켰다. 제목·저자·DOI를 대조해 바로잡았으므로 이전 대비 순위 변화를 인용 증가만의 효과로 해석하면 안 된다. 일부 레코드는 최신 조회 인용수가 과거 기록보다 작다. 버전별 인용수를 합산하거나 감소를 임의로 보정하지 않고 조회값을 그대로 사용했다. 기존 표의 연도는 최초 공개 연도로 유지해 연령 보정의 분모를 바꾸지 않았다.
+
+[전체 조회·매칭 기록](updates/citations-2026-11-03.json) · [연구자 23명 순위](updates/researcher-ranks-2026-11-03.json) · [과거 값 보존본 — 일부 출처 오류 포함](updates/citations-2026-09-02-legacy.json)
 
 ### 이 숫자를 그대로 순위표로 보기는 어렵다
 
@@ -151,6 +173,6 @@ Bridge Impact는 비디오와 로보틱스 양쪽에서 중요한 작업이 확�
 
 ### 표본 수정 이력
 
-2026년 9월 5일 재검토에서 연구자 표본은 52명에서 46명으로 줄였고, 자료 목록은 기존 66건을 유지한 채 P067–P074 논문 8편을 추가해 74건으로 늘렸다. 추가 목록과 제외 이유는 [수정 이력](https://2seungeun.github.io/2seungeun/notes/01-video-to-robotics-transition/revision-history.html)에 기록했다. 2026년 9월 30일에는 대표 논문 ID와 보조 열, 인용 출처 링크, 분류 설명과 계보 차트를 바로잡았다. 인용수 기준일은 2026년 9월 2일로 유지했다.
+2026년 9월 5일 재검토에서 연구자 표본은 52명에서 46명으로 줄였고, 자료 목록은 기존 66건을 유지한 채 P067–P074 논문 8편을 추가해 74건으로 늘렸다. 추가 목록과 제외 이유는 [수정 이력](https://2seungeun.github.io/2seungeun/notes/01-video-to-robotics-transition/revision-history.html)에 기록했다. 2026년 9월 30일에는 대표 논문 ID와 보조 열, 인용 출처 링크, 분류 설명과 계보 차트를 바로잡았다. 이후 2026년 11월 3일에 인용수와 순위를 갱신하고 잘못 연결된 출처 ID 6건을 수정했다.
 
 <p align="center" class="article-copyright">© 2026 이승은. All rights reserved.</p>

@@ -35,7 +35,7 @@ Recent work makes the bridge from video prediction to robot action more concrete
 
 Three questions sharpen the original map. VERA and RoFacto specify the **action interface** between a video model and an embodiment. ModAR and the representation study examine **task-relevant future information** beyond pixel reconstruction. RoboCoach, repair-and-reject post-training, and rectified replay feed predictions into **data acquisition, policy improvement, and retention**. In addition to perception, simulation, planning and policy, the map should record how a model participates in a learning loop. This is an interpretation of the selected works, not a cross-paper performance comparison.
 
-The 46-person / 74-reference counts and charts below describe the original sample. The ten additions are recorded separately in the workbook's `Update_2026_11_03` sheet and [machine-readable update](updates/2026-11-03.json). Together, the archive now holds 84 references, but the provisional new mechanism mappings are not merged into the original 34-reference direct-bridge matrix or researcher statistics. Citation counts and impact rankings remain the **September 2, 2026 snapshot**. New-paper citations were not collected and must not be interpreted as zero.
+The 46-person / 74-reference counts and charts below describe the original sample. The ten additions are recorded separately in the workbook's `Update_2026_11_03` sheet and [machine-readable update](updates/2026-11-03.json). Together, the archive now holds 84 references, but the provisional new mechanism mappings are not merged into the original 34-reference direct-bridge matrix or researcher statistics. Citation counts and impact rankings now use **OpenAlex values retrieved November 3, 2026**. All 82 research papers were queried; two official articles/announcements have no scholarly citation count. A new-paper zero is an observed value for that OpenAlex record, not proof of no citations in every index.
 
 ## The boundary was blurring more than people were switching fields
 
@@ -79,7 +79,7 @@ Within the generative family, action position separates G1, G2, and G3. G1 gener
 <details>
 <summary><strong>Game-oriented G2 boundary cases</strong> <em>(expand)</em></summary>
 <p><a href="https://arxiv.org/abs/2408.14837">GameNGen</a> and <a href="https://arxiv.org/abs/2402.15391">Genie</a> are G2 because they generate the next visual state from past frames and actions, or from latent actions learned from video. Neither paper demonstrates transfer to a robot or physical system. They remain useful context for the technical lineage but are excluded from the 34 direct bridge references. <strong>Being G2</strong> and <strong>showing a robotics transfer</strong> are separate judgments.</p>
-<p>The figure below shows a broader interactive world-model lineage. <a href="https://arxiv.org/abs/2406.09455">Pandora</a> and <a href="https://arxiv.org/abs/2303.13472">Promptable Game Models</a> control state changes through language-described actions. Language conditioning alone does not establish a G2 or VL origin. Citation labels use the same September 2, 2026 OpenAlex snapshot as the spreadsheet.</p>
+<p>The figure below shows a broader interactive world-model lineage. <a href="https://arxiv.org/abs/2406.09455">Pandora</a> and <a href="https://arxiv.org/abs/2303.13472">Promptable Game Models</a> control state changes through language-described actions. Language conditioning alone does not establish a G2 or VL origin. Citation labels use the same November 3, 2026 OpenAlex retrieval as the spreadsheet.</p>
 <img src="assets/interactive_g2_lineage.png" alt="Lineage of game and general interactive world models" loading="lazy" style="width:100%;height:auto;">
 </details>
 
@@ -104,11 +104,11 @@ Separating generation, understanding, and video-language—and then tracing thei
 The spreadsheet contains the 46-researcher table, the 74-entry reference catalogue, researcher and paper matrices built from one code system, transition counts, classification rules, and source links. For this re-audit, I matched representative-paper links against author lists again. Andrea Vedaldi, João Carreira, José Lezama, Lijun Yu, Tim Brooks, and Xun Huang were removed from the researcher sample because I could not verify an individual physical-robotics connection under the stated rule. The `Audit_Log` sheet records the detailed corrections.
 
 - [Download the research data](video_to_robotics_architecture_pilot.xlsx)
-- Citation snapshot: September 2, 2026
+- Citation retrieval: November 3, 2026
 
 ### I looked at both cumulative and age-adjusted citations
 
-All citation counts use the [OpenAlex](https://openalex.org/) cited_by_count snapshot from September 2, 2026. Different scholarly search services merge paper versions differently, so these are source-specific values intended for comparison within one snapshot.
+All citation counts use the [OpenAlex](https://openalex.org/) cited_by_count values retrieved November 3, 2026. Different scholarly search services merge paper versions differently, so these are source-specific values intended for comparison within one snapshot.
 
 Cumulative citations favor older papers. I therefore added a simple age-adjusted view:
 
@@ -141,7 +141,29 @@ When a single paper directly bridges video and robotics, it remains an important
 | Representative paper or citation input partially missing | 0 | Excluded |
 | **Total** | **46** |  |
 
-Under this rule, Chelsea Finn and Sergey Levine are tied for first, Deepak Pathak is third, Thomas Brox is fourth, and Xiaolong Wang is fifth. Agrim Gupta is tied for tenth.
+Under this rule, Chelsea Finn and Sergey Levine are tied for first, Thomas Brox is third, Deepak Pathak is fourth, and Frederik Ebert and Sudeep Dasari are tied for fifth. Agrim Gupta and Fei-Fei Li are tied for eighth.
+
+### November 3, 2026 citation and ranking refresh
+
+All 82 research papers were queried in OpenAlex. The same representative-paper choices, eligibility rules and evidence weights produce 23 ranked researchers. Competition ranking assigns equal scores the same rank and skips subsequent ranks. The table shows everyone ranked tenth or higher.
+
+| Rank | Researcher | Video-paper citations | Robotics-paper citations | Bridge Impact |
+|---:|---|---:|---:|---:|
+| 1 | Chelsea Finn | 600 | 250 | 388.40 |
+| 1 | Sergey Levine | 600 | 250 | 388.40 |
+| 3 | Thomas Brox | 4,309 | 19 | 293.60 |
+| 4 | Deepak Pathak | 449 | 86 | 197.86 |
+| 5 | Frederik Ebert | 250 | 123 | 176.42 |
+| 5 | Sudeep Dasari | 250 | 123 | 176.42 |
+| 7 | Xiaolong Wang | 457 | 28 | 115.25 |
+| 8 | Agrim Gupta | 83 | 94 | 89.33 |
+| 8 | Fei-Fei Li | 83 | 94 | 89.33 |
+| 10 | Linxi Fan | 72 | 94 | 83.28 |
+| 10 | Yuke Zhu | 72 | 94 | 83.28 |
+
+Six previous work IDs (P067, P068, P069, P070, P072 and P074) referred to different papers. They were corrected by title, author and DOI, so rank changes must not be attributed solely to citation growth. Some current record counts are lower than the legacy values; counts are used as observed, without summing versions or imposing monotonic growth. The original first-publication years are retained for age adjustment.
+
+[Complete retrieval and matching record](updates/citations-2026-11-03.json) · [All 23 researcher ranks](updates/researcher-ranks-2026-11-03.json) · [Legacy values, including some incorrect source mappings](updates/citations-2026-09-02-legacy.json)
 
 ### These numbers should not be read as a general ranking
 
@@ -151,6 +173,6 @@ Selecting one or two representative papers also leaves out contributions, and ci
 
 ### Sample revision history
 
-The September 5, 2026 re-audit reduced the researcher sample from 52 to 46 and retained all 66 existing reference entries while adding P067–P074, bringing the reference total to 74. Added entries and exclusion reasons are recorded in the [change log](https://2seungeun.github.io/2seungeun/notes/01-video-to-robotics-transition/revision-history.html). On September 30, 2026, representative-paper metadata, citation-source links, classification notes, and the lineage figure were corrected. The citation snapshot remains September 2, 2026.
+The September 5, 2026 re-audit reduced the researcher sample from 52 to 46 and retained all 66 existing reference entries while adding P067–P074, bringing the reference total to 74. Added entries and exclusion reasons are recorded in the [change log](https://2seungeun.github.io/2seungeun/notes/01-video-to-robotics-transition/revision-history.html). On September 30, 2026, representative-paper metadata, citation-source links, classification notes, and the lineage figure were corrected. The November 3 refresh subsequently replaced citation inputs and corrected six mismatched work IDs; see the current ranking table above.
 
 <p align="center" class="article-copyright">© 2026 Seungeun Lee. All rights reserved.</p>
