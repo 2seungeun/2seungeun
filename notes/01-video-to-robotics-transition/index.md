@@ -5,6 +5,7 @@ description: "비디오 생성, 이해, 비디오 언어 연구가 로봇의 인
 lang: ko
 author: "Seungeun Lee"
 datePublished: "2026-09-01"
+dateModified: "2026-09-30"
 permalink: /notes/01-video-to-robotics-transition/
 ---
 

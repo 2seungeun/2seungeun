@@ -5,6 +5,7 @@ description: "A research note mapping how video generation, understanding, and v
 lang: en
 author: "Seungeun Lee"
 datePublished: "2026-09-01"
+dateModified: "2026-09-30"
 permalink: /notes/01-video-to-robotics-transition/english.html
 ---
 

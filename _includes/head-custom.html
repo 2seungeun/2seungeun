@@ -29,6 +29,9 @@
 {% if page.datePublished and page.author %}
 <meta name="author" content="{{ page.author }}">
 <meta property="article:published_time" content="{{ page.datePublished }}">
+{% if page.dateModified %}
+<meta property="article:modified_time" content="{{ page.dateModified }}">
+{% endif %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,6 +43,7 @@
     "name": {{ page.author | jsonify }}
   },
   "datePublished": {{ page.datePublished | jsonify }},
+  {% if page.dateModified %}"dateModified": {{ page.dateModified | jsonify }},{% endif %}
   "inLanguage": {{ page.lang | jsonify }},
   "url": {{ page.url | absolute_url | jsonify }}
 }
