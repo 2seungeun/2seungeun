@@ -37,3 +37,11 @@ Reference entries: **66 → 74**. All 66 previous Paper_ID entries were retained
 - Clarified G2 control actions, the absence of a separate A origin code, and the meaning of VL. Added visible modification dates and article dateModified metadata.
 
 The current sample is **46 researchers / 74 reference entries / 34 direct bridge references**. Citation counts are historical snapshots, not current counts. The project article P032 remains one entry in the paper catalogue and is explicitly identified as a project article.
+
+## 2026-11-03 — 문헌 현행화 / Evidence refresh
+
+- Published the previously pending September consistency corrections first, in commit `d4c4580`.
+- Added 10 individually sourced entries: nine research papers and one official announcement. Includes May–July backfills and September–November releases/revisions; sources checked November 3, 2026.
+- Added a bilingual current-research section, a machine-readable JSON record, and the `Update_2026_11_03` workbook sheet.
+- Preserved the original 46-person / 74-reference statistical sample and the September 2 citation snapshot. Combined archive: 84 references. New mechanism mappings are provisional; no new researcher assignments or current citation rankings are claimed.
+- Disambiguated three unrelated R²-WAM papers by title and arXiv ID. Treated Genie 4 as an official simulation announcement, not evidence of physical policy transfer.

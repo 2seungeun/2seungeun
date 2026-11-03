@@ -2,11 +2,11 @@
 
 **한국어** | [English](https://2seungeun.github.io/2seungeun/notes/01-video-to-robotics-transition/english.html)
 
-<p align="center" class="article-byline">By <a class="article-author" href="https://www.linkedin.com/in/lee-seungeun" target="_blank" rel="author me noopener">이승은</a><span aria-hidden="true"> — </span><time datetime="2026-09-01">2026년 9월 1일</time><span aria-hidden="true"> · </span>수정 <time datetime="2026-09-30">2026년 9월 30일</time></p>
+<p align="center" class="article-byline">By <a class="article-author" href="https://www.linkedin.com/in/lee-seungeun" target="_blank" rel="author me noopener">이승은</a><span aria-hidden="true"> — </span><time datetime="2026-09-01">2026년 9월 1일</time><span aria-hidden="true"> · </span>수정 <time datetime="2026-11-03">2026년 11월 3일</time></p>
 
 비디오를 하던 사람들이 로보틱스로 많이 넘어간 것 같다는 인상에서 시작했다. 그런데 사람의 현재 소속만 따라가서는 이 흐름이 잘 보이지 않았다. 원래 어떤 비디오 문제를 풀었는지, 그 경험이 로봇에서 어디에 쓰였는지를 함께 봐야 했다.
 
-이 글이 다루는 표본은 연구자 46명과 논문·프로젝트 자료 74건이다. 74건은 연구 논문 73편과 공식 1X 프로젝트 기사(P032) 1건이다. 둘은 1:1 목록이 아니다. 한 논문에 여러 연구자가 있고, 한 연구자도 여러 논문에 걸친다. 연구자 단위 비교를 할 때만 대표 비디오 논문과 대표 로보틱스 논문을 한 편씩 골랐다.
+기존 분석이 다루는 표본은 연구자 46명과 논문·프로젝트 자료 74건이다. 74건은 연구 논문 73편과 공식 1X 프로젝트 기사(P032) 1건이다. 둘은 1:1 목록이 아니다. 한 논문에 여러 연구자가 있고, 한 연구자도 여러 논문에 걸친다. 연구자 단위 비교를 할 때만 대표 비디오 논문과 대표 로보틱스 논문을 한 편씩 골랐다.
 
 논문·프로젝트 자료는 쓰임에 따라 세 묶음으로 나눴다.
 
@@ -15,6 +15,27 @@
 | 직접 연결 자료 | 34 | 논문 또는 공식 프로젝트에서 비디오의 표현, 예측, 생성 구조가 로봇 문제에 쓰인 것이 확인됨 | Yes |
 | 흐름을 설명하는 주변 사례 | 22 | 로봇 실험은 없거나 직접 연결은 아니지만, 기술 계보와 비교에 필요함 | Adjacent |
 | 한쪽 분야의 기준 논문 | 18 | 비디오 또는 로보틱스 한쪽의 대표 작업으로, 연구자의 출발점과 도착점을 확인하는 데 사용함 | No |
+
+## 2026년 11월 3일 업데이트: 연결 이후에는 무엇을 하나
+
+최신 연구에서는 비디오 예측을 로봇의 행동으로 바꾸는 연결 자체와 함께, **어떤 미래 정보를 예측하고 그 결과를 학습 과정에 어떻게 되돌릴지**가 더 구체화되고 있다. 아래는 원문과 공식 발표를 확인한 10건의 선별 보강 자료다. 9편의 논문과 1건의 공식 발표이며, 5~7월 누락 자료와 9~11월 신규·개정 자료를 포함한다. 전수조사나 새 연구자 순위는 아니다.
+
+| 자료 · 확인 버전 | 연결 방식 | 근거와 해석 범위 |
+|---|---|---|
+| [Turning Video Models into Generalist Robot Policies (VERA)](https://arxiv.org/abs/2605.27817) · v1 · 2026-05-27 | G1 → Planning + video-to-action | action-free 비디오 계획과 로봇별 IDM을 분리. 실제 로봇 실험이 있으며, 5월 논문을 이번에 보강한 사례다. |
+| [Cosmos 3: Omnimodal World Models for Physical AI](https://arxiv.org/abs/2606.02800) · v4 · 2026-06-23 | G2/G3 (task-dependent) → World simulation / policy backbone | 여러 모달리티를 다루는 월드 모델 계열. 전체 제품군을 한 코드에 넣기보다 사용한 모델·작업별로 G2/G3를 구분해야 한다. |
+| [WorldScape Policy 2.0](https://arxiv.org/abs/2607.18840) · v3 · 2026-10-20 | G3 → Direct policy | 영상·행동 공동 모델링에 시각 및 이벤트 메모리를 결합. 시뮬레이션과 실제 플랫폼 실험이 있으며 10월 개정본까지 확인했다. |
+| [Robot-Factored World Models via Robot Rendering (RoFacto)](https://arxiv.org/abs/2607.22535) · v2 · 2026-11-02 | G2 → World simulation / data generation | 제어기·기구학·URDF 렌더링으로 행동 조건을 구성하고 장면 반응을 예측. 11월 카메라레디 개정본에서 embodiment 전이를 다룬다. |
+| [Modality-Autoregressive World-Action Models (ModAR)](https://arxiv.org/abs/2609.17524) · v2 · 2026-10-08 | U2/U3 + multimodal prediction → Direct policy | 미래 track·feature·depth를 순차 예측한 뒤 행동을 생성. from-scratch 학습과 실제 양팔 실험이므로 비디오 사전학습의 효과로 해석하면 안 된다. |
+| [RoboCoach: World Models as Active Coaches for Compositional Robot Skills](https://arxiv.org/abs/2609.39685) · v1 · 2026-09-30 | G2 → Evaluation → targeted supervision | 상상한 하위 작업 실패로 시연 수집 대상과 expert 업데이트를 선택. 동일 예산 비교와 실제 로봇 실험을 포함하며, 기존 분류에 coaching 용도를 명시할 필요를 보여준다. |
+| [R²-WAM: Repair-and-Reject Post-Training for World Action Models](https://arxiv.org/abs/2610.04913) · v2 · 2026-10-07 | G2/G3 system → Policy refinement | action-video 일관성을 먼저 보정하고 열등한 행동 샘플을 후학습에 활용. 실제 로봇 근거가 있으며 같은 R²-WAM 이름의 N08·N09와 다른 논문이다. |
+| [What Visual Representations Do World Action Models Need?](https://arxiv.org/abs/2610.13024) · v1 · 2026-10-09 | G3 + visual representations → Direct policy | WAM의 표현·결합 방식을 통제 비교하고 미래 feature 공동 예측을 검토. Representation Recipe라는 R²-WAM으로, repair-and-reject나 replay와 다르다. |
+| [Data-Free Continual Learning for World Action Model with Rectified Generative Replay](https://arxiv.org/abs/2610.18038) · v2 · 2026-10-14 | G3 → Continual learning / generative replay | 생성한 관측·행동 rollout으로 과거 작업을 복습하며 완료 후 절단과 일관성 필터링을 적용. 과거 실제 학습 데이터 없이 수행하고 실제 로봇 실험도 포함한다. |
+| [Genie 4: A new generation of world simulation](https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/) · Official announcement · 2026-10-27 | G2 context (provisional) → Interactive simulation | Gemini가 유도하는 휴머노이드 작업 시뮬레이션을 공개. 이 발표만으로 실제 하드웨어 정책 전이가 검증된 것은 아니므로 주변 맥락으로 분류한다. |
+
+이 자료들이 더하는 관점은 세 가지다. VERA와 RoFacto는 비디오와 로봇 사이의 **행동 인터페이스**를 구체화한다. ModAR와 표현 비교 연구는 픽셀 복원 외의 **작업에 필요한 미래 정보**를 따져 묻는다. RoboCoach와 두 후학습·replay 연구는 예측을 **데이터 선택, 정책 개선, 기존 능력 보존**에 되돌린다. 따라서 기존의 perception·simulation·planning·policy 분류에 학습 루프 안의 쓰임을 함께 기록할 필요가 있다. 이는 이 글의 해석이며, 서로 다른 논문의 성능을 직접 비교한 결론은 아니다.
+
+아래의 46명·74건 집계와 차트는 기존 표본에 대한 분석이다. 이번 10건은 엑셀의 `Update_2026_11_03` 시트 및 [갱신 데이터](updates/2026-11-03.json)에 별도로 기록했다. 합쳐서 보관한 자료는 84건이지만, 새 자료의 역할 분류는 잠정적이며 기존 34건 직접 연결 표본·연구자 행렬에는 섞지 않았다. 인용수와 영향력 순위는 **2026-09-02 스냅샷**으로 유지했다. 신규 논문의 인용수는 수집하지 않았으며 0으로 간주하지 않는다.
 
 ## 전환이라기보다는 경계가 섞이고 있었다
 

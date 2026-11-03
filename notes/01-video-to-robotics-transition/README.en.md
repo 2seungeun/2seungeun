@@ -2,11 +2,11 @@
 
 [한국어](https://2seungeun.github.io/2seungeun/notes/01-video-to-robotics-transition/) | **English**
 
-<p align="center" class="article-byline">By <a class="article-author" href="https://www.linkedin.com/in/lee-seungeun" target="_blank" rel="author me noopener">Seungeun Lee</a><span aria-hidden="true"> — </span><time datetime="2026-09-01">September 1, 2026</time><span aria-hidden="true"> · </span>Updated <time datetime="2026-09-30">September 30, 2026</time></p>
+<p align="center" class="article-byline">By <a class="article-author" href="https://www.linkedin.com/in/lee-seungeun" target="_blank" rel="author me noopener">Seungeun Lee</a><span aria-hidden="true"> — </span><time datetime="2026-09-01">September 1, 2026</time><span aria-hidden="true"> · </span>Updated <time datetime="2026-11-03">November 3, 2026</time></p>
 
 This note began with the impression that many people who worked on video were moving into robotics. Current affiliations alone did not tell that story very well. I needed to look at the video problems each researcher had worked on and where that experience later appeared in robotics.
 
-This note covers 46 researchers and 74 reference entries. The catalogue contains 73 research papers and one official 1X project article (P032). These are not one-to-one lists: a paper can have several relevant authors, and a researcher can appear on several papers. I selected one representative video paper and one representative robotics paper only when making researcher-level comparisons.
+The original analysis covers 46 researchers and 74 reference entries. The catalogue contains 73 research papers and one official 1X project article (P032). These are not one-to-one lists: a paper can have several relevant authors, and a researcher can appear on several papers. I selected one representative video paper and one representative robotics paper only when making researcher-level comparisons.
 
 The reference entries are grouped by how they are used in the analysis.
 
@@ -15,6 +15,27 @@ The reference entries are grouped by how they are used in the analysis.
 | Direct bridge references | 34 | The paper or official project article shows a video representation, prediction, or generation mechanism being used for a robotics problem | Yes |
 | Context and lineage papers | 22 | No direct robotics transfer is demonstrated, but the paper is needed to trace or compare the technical lineage | Adjacent |
 | One-side reference papers | 18 | A representative video-side or robotics-side paper used to establish a researcher's starting point or destination | No |
+
+## November 3, 2026 update: what happens after the bridge
+
+Recent work makes the bridge from video prediction to robot action more concrete, while asking **which future information to predict and how to feed it back into learning**. The 10 selected additions below contain nine papers and one official announcement, including May–July backfills and September–November releases or revisions. This is a selective evidence update, not an exhaustive survey or a new researcher ranking.
+
+| Reference · checked version | Mechanism / use | Evidence boundary |
+|---|---|---|
+| [Turning Video Models into Generalist Robot Policies (VERA)](https://arxiv.org/abs/2605.27817) · v1 · 2026-05-27 | G1 → Planning + video-to-action | Real-robot evidence; an action-free video planner is paired with an embodiment-specific inverse dynamics model. This is a backfill, not a new November paper. |
+| [Cosmos 3: Omnimodal World Models for Physical AI](https://arxiv.org/abs/2606.02800) · v4 · 2026-06-23 | G2/G3 (task-dependent) → World simulation / policy backbone | Technical report for a multimodal world-model family. Assign codes per runtime/task, rather than treating the whole family as a single G2 or G3 experiment. |
+| [WorldScape Policy 2.0](https://arxiv.org/abs/2607.18840) · v3 · 2026-10-20 | G3 → Direct policy | Joint visual-action modeling with visual and event memory; simulation and real-platform experiments. July work with an October revision. |
+| [Robot-Factored World Models via Robot Rendering (RoFacto)](https://arxiv.org/abs/2607.22535) · v2 · 2026-11-02 | G2 → World simulation / data generation | Robot controller, kinematics and URDF rendering provide action conditions; the model predicts scene responses. November camera-ready revision reports embodiment transfer. |
+| [Modality-Autoregressive World-Action Models (ModAR)](https://arxiv.org/abs/2609.17524) · v2 · 2026-10-08 | U2/U3 + multimodal prediction → Direct policy | Predicts future tracks, features and depth before actions. Trained from scratch; real bimanual tests. A video-pretraining benefit must not be inferred from this result. |
+| [RoboCoach: World Models as Active Coaches for Compositional Robot Skills](https://arxiv.org/abs/2609.39685) · v1 · 2026-09-30 | G2 → Evaluation → targeted supervision | Imagined subtask failures guide demonstration requests and expert updates; matched-budget comparisons and real-robot tests. Extends the original role taxonomy with an explicit coaching use. |
+| [R²-WAM: Repair-and-Reject Post-Training for World Action Models](https://arxiv.org/abs/2610.04913) · v2 · 2026-10-07 | G2/G3 system → Policy refinement | Repairs action-video consistency before rejecting inferior action samples for post-training. Real-robot evidence. Distinct from N08 and N09 despite the shared R²-WAM name. |
+| [What Visual Representations Do World Action Models Need?](https://arxiv.org/abs/2610.13024) · v1 · 2026-10-09 | G3 + visual representations → Direct policy | Controlled representation/integration comparisons for WAMs; channel-wise joint future-feature prediction is effective. Representation Recipe (R²-WAM), not repair-and-reject or replay. |
+| [Data-Free Continual Learning for World Action Model with Rectified Generative Replay](https://arxiv.org/abs/2610.18038) · v2 · 2026-10-14 | G3 → Continual learning / generative replay | Generated observation-action rollouts rehearse past tasks; completion truncation and consistency filtering address replay failures. Real-robot tests; no old real training data is accessed. |
+| [Genie 4: A new generation of world simulation](https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/) · Official announcement · 2026-10-27 | G2 context (provisional) → Interactive simulation | Official preview includes Gemini-guided humanoid task simulation. This announcement alone does not demonstrate learned-policy transfer to physical hardware; retain as context, not a direct robot-transfer result. |
+
+Three questions sharpen the original map. VERA and RoFacto specify the **action interface** between a video model and an embodiment. ModAR and the representation study examine **task-relevant future information** beyond pixel reconstruction. RoboCoach, repair-and-reject post-training, and rectified replay feed predictions into **data acquisition, policy improvement, and retention**. In addition to perception, simulation, planning and policy, the map should record how a model participates in a learning loop. This is an interpretation of the selected works, not a cross-paper performance comparison.
+
+The 46-person / 74-reference counts and charts below describe the original sample. The ten additions are recorded separately in the workbook's `Update_2026_11_03` sheet and [machine-readable update](updates/2026-11-03.json). Together, the archive now holds 84 references, but the provisional new mechanism mappings are not merged into the original 34-reference direct-bridge matrix or researcher statistics. Citation counts and impact rankings remain the **September 2, 2026 snapshot**. New-paper citations were not collected and must not be interpreted as zero.
 
 ## The boundary was blurring more than people were switching fields
 
